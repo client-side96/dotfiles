@@ -7,13 +7,13 @@ package_manager=dnf
 # Be aware that not all package managers hold
 # the same packages in their upstream.
 packages=(
-    "curl"
-    "git"
-    "zsh"
-    "exa"
-    "vim"
-    "emacs"
-    "kitty"
+    "curl" # Download stuff
+    "git" # Version everything
+    "zsh" # Better than the default shell
+    "exa" # List files in a nice way
+    "vim" # <3
+    "emacs" # <3 <3
+    "kitty" # The best terminal emulator
 )
 
 echo "Starting installation on your $os system..."
@@ -28,12 +28,16 @@ sudo $package_manager install $joined_packages
 echo "Installing some packages manually..."
 echo ""
 # TODO: Packages
+# * antigen (Package manager for zsh)
 # * starship (Awesome shell)
 # * nvm (Node version manager)
 # * pnpm (Better js package manager)
 # * doom (MY IDE)
-
-# TODO: Setup
-# Shell: chsh -S $(which zsh)
-
-# TODO: Install doom environment
+echo "Installing antigen"
+curl -L git.io/antigen > $HOME/.config/antigen/antigen.zsh
+echo "Installing starship"
+curl -sS https://starship.rs/install.sh | sh
+echo "Installing nvm"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+echo "Installing pnpm"
+curl -fsSL https://get.pnpm.io/install.sh | sh -

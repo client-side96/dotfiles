@@ -1,8 +1,28 @@
 #+title: Dotfiles documentation
 
+    The goal of this dotfiles repository is to provide an easy way to install your personal setup onto a new system.
+
+** External Dependencies
+
+The installation script works out of the box and has no external dependencies.
+*NOTE*: On MacOS the package manager ~[[https://docs.brew.sh/Installation][brew]]~ has to be installed first.
+
+
 ** Installation
 
 The installation of the dotfiles can be started automatically by executing the ~.install-dotfiles.sh~ script.
-The script first tries to install the packages defined in the ~packages~ array via the package manager of the host system.
+The script first tries to install the packages that are listed at the top of the script via the package manager
+of the host system. As a second step all the software gets installed that is not available via a package manager.
+
+*** Installation via package manager
 
 *NOTE*: Some packages might not be available on every package manager. This script was tested on Fedora.
+
+| Operating System | Package Manager |
+| Fedora           | ~dnf~           |
+| Ubuntu           | ~apt~           |
+| MacOS            | ~brew~          |
+
+*** Additional installations
+
+The additional software will be downloaded via ~curl~ and installed with their own provided bash scripts.
