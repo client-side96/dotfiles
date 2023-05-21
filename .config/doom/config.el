@@ -84,3 +84,6 @@
 ;; it is enough to simply disable the lsp formatter.
 (setq-hook! 'typescript-mode-hook +format-with-lsp nil) ;; use prettier
 (setq-hook! 'typescript-tsx-mode-hook +format-with-lsp nil) ;; use prettier
+
+(after! lsp-haskell
+  (setq lsp-haskell-formatting-provider "stylish-haskell"))
