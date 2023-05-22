@@ -1,0 +1,31 @@
+theme = "catppuccin"
+[editor]
+line-number = "relative"
+cursorline = true
+auto-format = false
+mouse = false
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "position", "version-control", "workspace-diagnostics"]
+right = ["diagnostics", "file-encoding", "file-type"]
+mode.normal = "N"
+mode.insert = "I"
+mode.select = "S"
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
+[editor.file-picker]
+hidden = false
+
+[editor.cursor-shape]
+normal = "block"
+insert = "underline"
+select = "underline"
+
+[editor.whitespace.render]
+space = "all"
+
+[editor.indent-guides]
+render = true
