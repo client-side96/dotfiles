@@ -27,3 +27,8 @@ formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = false
 # FIXME: Multiple language servers are merged to main, but not released yet!
 # language-server = [ "typescript-language-server", "eslint" ]
+
+[[language]]
+name = "haskell"
+formatter = { command = 'stylish-haskell' }
+auto-format = false

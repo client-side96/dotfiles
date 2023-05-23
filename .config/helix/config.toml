@@ -1,9 +1,11 @@
-theme = "catppuccin"
+theme = "everforest_light"
+
 [editor]
 line-number = "relative"
 cursorline = true
 auto-format = false
 mouse = false
+undercurl = true
 
 [editor.statusline]
 left = ["mode", "spinner", "file-name", "position", "version-control", "workspace-diagnostics"]
@@ -28,4 +30,4 @@ select = "underline"
 space = "all"
 
 [editor.indent-guides]
-render = true
+render = false

@@ -1,6 +1,6 @@
 # Fonts settings
 font_family CaskaydiaCove Nerd Font Mono
-font_size 11.0
+font_size 12.0
 bold_font Cascadia Code
 italic_font Cascadia Code
 disable_ligatures auto 
@@ -16,6 +16,6 @@ enable_audio_bell no
 
 
 # BEGIN_KITTY_THEME
-# Everforest Light Hard
+# Rosé Pine Dawn
 include current-theme.conf
 # END_KITTY_THEME
