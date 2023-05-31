@@ -16,7 +16,7 @@ mode.select = "S"
 
 [editor.lsp]
 display-messages = true
-display-inlay-hints = true
+display-inlay-hints = false
 
 [editor.file-picker]
 hidden = false
@@ -31,3 +31,19 @@ space = "all"
 
 [editor.indent-guides]
 render = false
+
+# Keybindings
+[keys.normal]
+"C-A-l" = ":open ~/.config/helix/languages.toml" # Open helix configuration
+"C-A-o" = ":open ~/.config/helix/config.toml" # Open helix language configuration
+"C-A-r" = ":config-reload" # Reload helix configuration
+
+# Move whole line up and down
+"A-k" = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+"˚"  =  ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"] # mac
+"A-j" = [ "extend_to_line_bounds", "delete_selection", "paste_after" ]
+"∆" = [ "extend_to_line_bounds", "delete_selection", "paste_after" ] # mac
+
+# Do it the right way <3
+C-r = "redo"
+V = "extend_to_line_bounds"
