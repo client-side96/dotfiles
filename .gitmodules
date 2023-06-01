@@ -1,0 +1,6 @@
+[submodule "/Users/frey_do/forks/helix"]
+	path = /Users/frey_do/forks/helix
+	url = git@github.com:client-side96/helix.git
+[submodule "pkg/helix"]
+	path = pkg/helix
+	url = git@github.com:client-side96/helix.git
