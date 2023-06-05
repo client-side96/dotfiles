@@ -2,3 +2,4 @@
 .vscode/
 .cfg
 .config/helix/runtime/
+.config/kitty/*.bak
