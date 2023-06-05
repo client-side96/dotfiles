@@ -26,6 +26,7 @@ export GOPATH=$HOME/go
 
 # exports & evals
 export EDITOR='vim'
+export HELIX_RUNTIME=$HOME/pkg/helix/runtime
 
 # Starship shell
 eval "$(starship init zsh)"
