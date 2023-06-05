@@ -1,0 +1,4 @@
+.dotfiles
+.vscode/
+.cfg
+.config/helix/runtime/
