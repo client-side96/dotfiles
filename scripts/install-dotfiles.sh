@@ -14,6 +14,7 @@ packages=(
     "vim" # <3
     "emacs" # <3 <3
     "kitty" # The best terminal emulator
+    "ttfautohint" # Dependency to build 'My Iosevka'
 )
 
 echo "Starting installation on your $os system..."
