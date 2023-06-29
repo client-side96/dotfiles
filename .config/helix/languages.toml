@@ -56,3 +56,7 @@ language-servers = [ "typescript-language-server", "eslint" ]
 name = "haskell"
 formatter = { command = 'stylish-haskell' }
 auto-format = false
+
+[[language]]
+name="go"
+auto-format = true
