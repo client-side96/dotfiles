@@ -21,11 +21,11 @@ alias ll='ls -l -g'
 alias dot='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # PATH
-export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/go/bin:$HOME/.config/emacs/bin:$HOME/.ghcup/bin:/usr/local/go/bin:$HOME/.cabal/bin:$PATH
+export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/go/bin:$HOME/.config/emacs/bin:$HOME/.ghcup/bin:/usr/local/go/bin:$HOME/.cabal/bin:$HOME/.local/bin:$PATH
 export GOPATH=$HOME/go
 
 # exports & evals
-export EDITOR='vim'
+export EDITOR='hx'
 export HELIX_RUNTIME=$HOME/pkg/helix/runtime
 
 # Starship shell
