@@ -3,7 +3,6 @@ theme = "rose_pine_dawn"
 [editor]
 line-number = "relative"
 cursorline = true
-auto-format = false
 mouse = false
 undercurl = true
 rulers = [80, 100, 120]

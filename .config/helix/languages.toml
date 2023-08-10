@@ -3,16 +3,16 @@ args = ["--stdio"]
 command = "vscode-eslint-language-server"
 
 [language-server.eslint.config]
-format = true
+format = false
 nodePath = ""
 onIgnoredFiles = "off"
-# packageManager = "yarn"
 quiet = false
 rulesCustomizations = []
 run = "onType"
 useESLintClass = false
 validate = "on"
-codeAction = { disableRuleComment = { enable = true, location = "separateLine" }, showDocumentation = { enable = true } }
+codeAction = { disableRuleComment = { enable = true , location = "separateLine" }
+             , showDocumentation = { enable = true } }
 codeActionOnSave = { mode = "all" }
 experimental = { }
 problems = { shortenToSingleLine = false }
@@ -21,35 +21,34 @@ workingDirectory = { mode = "auto" }
 [[language]]
 name = "html"
 formatter = { command = 'prettier', args = ["--parser", "html"] }
-auto-format = false
+auto-format = true
 
 [[language]]
 name = "json"
 formatter = { command = 'prettier', args = ["--parser", "json"] }
-auto-format = false
+auto-format = true
 
 [[language]]
 name = "css"
 formatter = { command = 'prettier', args = ["--parser", "css"] }
-auto-format = false
+auto-format = true
 
 [[language]]
 name = "javascript"
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
-auto-format = false
+auto-format = true
 language-servers = [ "typescript-language-server", "eslint" ]
 
 [[language]]
 name = "typescript"
-formatter = {  command = 'prettier' , args = ["--parser", "typescript"] , pre = [{ target = "--config", command = "prettier", args = ["--find-config-path"] }]  }
-auto-format = false
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
 language-servers = [ "typescript-language-server", "eslint" ]
 
 [[language]]
 name = "tsx"
-formatter = {  command = 'prettier' , args = ["--parser", "typescript"] , pre = [{ target = "--config", command = "prettier", args = ["--find-config-path"] }]  }
-auto-format = false
-# FIXME: Multiple language servers are merged to main, but not released yet!
+formatter = { command = 'prettier' , args = ["--parser", "typescript"] }
+auto-format = true
 language-servers = [ "typescript-language-server", "eslint" ]
 
 [[language]]
