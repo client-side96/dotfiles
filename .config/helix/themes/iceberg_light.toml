@@ -1,0 +1,123 @@
+"ui.background" = { bg = "base" }
+"ui.background.separator" = { bg = "base" }
+
+"ui.cursor" = { fg = "surface", bg = "gray" } # TODO: background (should be lighter than selection)
+# "ui.cursor.normal" = {}
+# "ui.cursor.insert" = {}
+# "ui.cursor.select" = {}
+"ui.cursor.match" = { bg = "base_dark" }
+# "ui.cursor.primary" = {}
+# "ui.cursor.primary.normal" = {}
+# "ui.cursor.primary.insert" = {}
+# "ui.cursor.primary.select" = {}
+
+# "ui.debug.breakpoint" = {}
+# "ui.debug.active" = {}
+
+"ui.gutter" = { bg = "light-gray", fg = "blue" }
+"ui.gutter.selected" = { bg = "base_dark", fg = "blue" }
+
+# "ui.highlight.frameline" = {}
+
+"ui.linenr" = { bg = "light-gray", fg = "gray" }
+"ui.linenr.selected" = { bg = "base_dark"}
+
+"ui.statusline" = { bg = "light-gray", fg = "gray" }
+"ui.statusline.inactive" = { bg = "light-gray", fg = "gray"}
+"ui.statusline.normal" = { bg = "light-blue", fg = "base" }
+"ui.statusline.insert" = { bg = "light-green", fg = "base" }
+"ui.statusline.select" = { bg = "light-magenta", fg = "base" }
+# "ui.statusline.separator" = ")"
+
+"ui.popup" = { bg = "base_dark" }
+# "ui.popup.info" = {}
+
+# "ui.window" = {}
+
+# "ui.help" = { bg = "light-gray", fg = "gray" }
+"ui.text" = { fg = "surface" }
+# "ui.text.focus" = {}
+# "ui.text.inactive" = {}
+# "ui.text.info" = {}
+
+"ui.virtual.ruler" = { bg = "light-gray" }
+"ui.virtual.whitespace" = { fg = "gray" }
+# "ui.virtual.indent-guide" = {}
+# "ui.virtual.inlay-hint" = {}
+# "ui.virtual.inlay-hint.parameter" = {}
+# "ui.virtual.inlay-hint.type" = {}
+"ui.virtual.wrap" = { fg = "gray" }
+
+# "ui.menu" = {}
+# "ui.menu.selected" = {}
+# "ui.menu.scroll" = {}
+
+"ui.selection" = { bg = "base_dark" }
+# "ui.selection.primary" = {}
+
+# "ui.highlight" = {}
+
+"ui.cursorline.primary" = { bg = "light-gray" }
+# "ui.cursorcolumn.primary" = {}
+# "ui.cursorcolumn.secondary" = {}
+
+"warning" = { fg = "yellow" }
+"error" = { fg = "red" }
+"info" = { fg = "cyan" }
+# "hint" = {}
+
+# "diagnostic" = {}
+# "diagnostic.hint" = {}
+# "diagnostic.info" = {}
+# "diagnostic.warning" = {}
+"diagnostic.error" = { underline = { color = "light-red", style = "curl"} }
+
+"attribute" = "light-cyan"
+"string" = "light-cyan"
+"type" = "light-blue"
+"constructor" = "magenta"
+"constant" = {fg = "light-magenta", modifiers = ["italic"]}
+"variable" = "surface"
+"variable.builtin" = "light-green"
+"variable.parameter" = "surface"
+"variable.other.member" = "light-blue"
+"punctuation" = "surface"
+"punctuation.bracket" = "magenta"
+"keyword" = "light-blue"
+"keyword.control.conditional" = "light-blue"
+"keyword.control.repeat" = "light-blue"
+"keyword.control.import" = "light-blue"
+"keyword.control.return" = "light-blue"
+"keyword.control.exception" = "light-blue"
+"keyword.operator" = "light-blue"
+"keyword.directive" = "light-blue"
+"keyword.function" = "light-blue"
+"keyword.storage" = "light-blue"
+
+"operator" = "surface"
+"function" = "surface"
+
+"tag" = "magenta"
+"special" = "red"
+
+"comment" = { fg = "gray", modifiers = ["italic"] }
+
+[palette]
+base          = "#e8e9ec"
+surface       = "#33374c" # text, cursor
+base_dark     = "#d2d4dd" # selection background
+light-gray    = "#dcdfe7"
+gray          = "#8389a3"
+light-red     = "#cc517a"
+red           = "#cc3768"
+light-green   = "#668e3d"
+green         = "#598030"
+light-yellow  = "#c57339"
+yellow        = "#b6662d"
+light-blue    = "#2d539e"
+blue          = "#22478e"
+light-magenta = "#7759b4"
+magenta       = "#6845ad"
+light-cyan    = "#3f83a6"
+cyan          = "#327698"
+black         = "#262a3f"

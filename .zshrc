@@ -21,12 +21,14 @@ alias ll='ls -l -g'
 alias dot='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # PATH
-export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/go/bin:$HOME/.config/emacs/bin:$HOME/.ghcup/bin:/usr/local/go/bin:$HOME/.cabal/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/go/bin:$HOME/.config/emacs/bin:$HOME/.ghcup/bin:/usr/local/go/bin:$HOME/.cabal/bin:$HOME/.local/bin:/usr/local/android-studio/bin:/usr/local/flutter/bin:/usr/local/cmdline-tools/latest/bin:$PATH
 export GOPATH=$HOME/go
 
 # exports & evals
 export EDITOR='hx'
 export HELIX_RUNTIME=$HOME/pkg/helix/runtime
+
+export NODE_EXTRA_CA_CERTS="$HOME/certs/franka-ca.crt"
 
 # Starship shell
 eval "$(starship init zsh)"
