@@ -1,4 +1,4 @@
-theme = "rose_pine_dawn"
+theme = "dracula"
 
 [editor]
 line-number = "relative"
@@ -6,6 +6,7 @@ cursorline = true
 mouse = false
 undercurl = true
 rulers = [80, 100, 120]
+color-modes = true
 
 [editor.statusline]
 left = ["mode", "spinner", "file-name", "position", "version-control", "workspace-diagnostics"]

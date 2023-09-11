@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-os=Fedora
-package_manager=dnf
+os=MacOS
+package_manager=brew
 
 # NOTE: Extend this list with more packages.
 # Be aware that not all package managers hold
