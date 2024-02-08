@@ -1,0 +1,32 @@
+new_tab Mobile App
+
+cd ~/devel/care/app-mobile
+
+launch --title "App (Editor)" zsh
+launch --title "App (CLI)" zsh
+
+new_tab Middleware
+
+cd ~/devel/care/app-middleware
+
+launch --title "Middleware (Editor)" zsh
+launch --title "Middleware (CLI)" zsh
+
+new_tab Terraform
+
+cd ~/devel/care/app-middleware-deployment
+
+launch --title "Terraform (Editor)" zsh
+launch --title "Terraform (CLI)" zsh
+
+new_tab Git
+
+layout stack
+cd ~/devel/care/app-mobile
+launch --title "Git (App)" lazygit
+
+cd ~/devel/care/app-middleware
+launch --title "Git (Middleware)" lazygit
+
+cd ~/devel/care/app-middleware-deployment
+launch --title "Git (Terraform)" lazygit

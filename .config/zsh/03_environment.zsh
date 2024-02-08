@@ -1,10 +1,14 @@
 # PATH
-export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/go/bin:$HOME/.config/emacs/bin:$HOME/.ghcup/bin:/usr/local/go/bin:$HOME/.cabal/bin:$HOME/.local/bin:/usr/local/android-studio/bin:/usr/local/flutter/bin:/usr/local/cmdline-tools/latest/bin:/usr/local/bin/omnisharp:$PATH
+export GEM_HOME=$HOME/.gems
+export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/go/bin:$HOME/.config/emacs/bin:$HOME/.ghcup/bin:/usr/local/go/bin:$HOME/.cabal/bin:$HOME/.local/bin:/usr/local/android-studio/bin:/usr/local/flutter/bin:/usr/local/cmdline-tools/latest/bin:/usr/local/bin/omnisharp:$HOME/fvm/default/bin:$GEM_HOME/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH
 export GOPATH=$HOME/go
 
 # exports & evals
 export EDITOR='hx'
 export HELIX_RUNTIME=$HOME/pkg/helix/runtime
+
+export LC_ALL=en_US.UTF-8
+
 
 # export NODE_EXTRA_CA_CERTS="$HOME/certs/franka-ca.crt"
 
@@ -22,4 +26,4 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-
+eval "$(rbenv init - zsh)"
