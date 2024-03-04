@@ -1,0 +1,23 @@
+let mapleader = " "
+
+set visualbell
+
+nmap <leader>f :action GotoFile<CR>
+nmap <leader>/ :action FindInPath<CR>
+nmap <leader>S :action GotoSymbol<CR>
+nmap <leader>r :action RenameElement<CR>
+nmap <leader>k :action ShowHoverInfo<CR>
+
+nmap gr :action FindUsages<CR>
+nmap [d :action GotoPreviousError<CR>
+nmap ]d :action GotoNextError<CR>
+
+nnoremap < <<
+nnoremap > >>
+
+nnoremap gs ^
+nnoremap gl $
+nnoremap ge G
+
+vnoremap < <gv
+vnoremap > >gv
