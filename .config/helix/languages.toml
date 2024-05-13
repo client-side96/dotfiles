@@ -73,3 +73,13 @@ file-types = ["cs"]
 comment-token = "//"
 indent = { tab-width = 4, unit = "    " }
 language-servers = ["omnisharp"]
+
+[language-server.pylsp.config.pylsp]
+plugins.pylint.enabled = true
+plugins.black.enabled = true
+plugins.pycodestyle.maxLineLength = 100
+plugins.mccabe.threshold = 20
+
+[[language]]
+name="python"
+auto-format = true

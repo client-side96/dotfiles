@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 
 # Required parameters:
 # @raycast.schemaVersion 1
@@ -6,7 +6,7 @@
 # @raycast.mode silent
 
 # Optional parameters:
-# @raycast.icon 😸
+# @raycast.icon 🧬
 # @raycast.packageName Kitty
 
 # Documentation:
@@ -16,6 +16,8 @@
 
 cd
 
-kitty --session ~/.config/kitty/sessions/care-app
+# kitty -o allow_remote_control=yes --session ~/.config/kitty/sessions/care-app
+open -a kitty.app -n --args --session ~/.config/kitty/sessions/care-app
+# open -a kitty.app -n
 
 echo "CARE project opened"

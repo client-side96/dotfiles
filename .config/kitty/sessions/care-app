@@ -1,32 +1,52 @@
+new_tab Git
+
+layout stack
+cd ~/devel/care/app-mobile
+launch --title "Git (App)" --hold lazygit
+
+cd ~/devel/care/app-middleware
+launch --title "Git (Middleware)" --hold lazygit
+
+cd ~/devel/care/virtual-coach-app
+launch --title "Git (Chat API)" --hold lazygit
+
+cd ~/devel/care/app-middleware-deployment
+launch --title "Git (Terraform)" --hold lazygit
+
+
+new_tab Finder
+cd
+launch --title "Finder" --hold yazi
+
+
 new_tab Mobile App
 
 cd ~/devel/care/app-mobile
 
-launch --title "App (Editor)" zsh
-launch --title "App (CLI)" zsh
+launch --title "App (Editor)" --hold zsh
+launch --title "App (CLI)" --hold zsh
+
 
 new_tab Middleware
 
 cd ~/devel/care/app-middleware
 
-launch --title "Middleware (Editor)" zsh
-launch --title "Middleware (CLI)" zsh
+launch --title "Middleware (Editor)" --hold zsh
+launch --title "Middleware (CLI)" --hold zsh
+
+
+new_tab Chat API
+
+cd ~/devel/care/virtual-coach-app
+
+launch --title "Chat API (Editor)" --hold zsh
+launch --title "Chat API (CLI)" --hold zsh
+
 
 new_tab Terraform
 
 cd ~/devel/care/app-middleware-deployment
 
-launch --title "Terraform (Editor)" zsh
-launch --title "Terraform (CLI)" zsh
+launch --title "Terraform (Editor)" --hold zsh
+launch --title "Terraform (CLI)" --hold zsh
 
-new_tab Git
-
-layout stack
-cd ~/devel/care/app-mobile
-launch --title "Git (App)" lazygit
-
-cd ~/devel/care/app-middleware
-launch --title "Git (Middleware)" lazygit
-
-cd ~/devel/care/app-middleware-deployment
-launch --title "Git (Terraform)" lazygit
