@@ -4,6 +4,7 @@ source $HOME/.config/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundle git
+anitgen bundle nvm
 antigen bundle zsh-users/zsh-syntax-highlighting
 # antigen bundle larkery/zsh-histdb
 antigen bundle zsh-users/zsh-autosuggestions
@@ -32,15 +33,6 @@ export EDITOR='hx'
 export HELIX_RUNTIME=$HOME/pkg/helix/runtime
 
 export LC_ALL=en_US.UTF-8
-
-# Python
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-
-# Node version manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # pnpm
 export PNPM_HOME="/home/frey_do/.local/share/pnpm"
