@@ -4,7 +4,7 @@ source $HOME/.config/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundle git
-anitgen bundle nvm
+antigen bundle nvm
 antigen bundle zsh-users/zsh-syntax-highlighting
 # antigen bundle larkery/zsh-histdb
 antigen bundle zsh-users/zsh-autosuggestions
