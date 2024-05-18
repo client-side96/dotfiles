@@ -4,6 +4,7 @@ source $HOME/.config/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundle git
+antigen bundle nvm
 antigen bundle zsh-users/zsh-syntax-highlighting
 # antigen bundle larkery/zsh-histdb
 antigen bundle zsh-users/zsh-autosuggestions
@@ -21,34 +22,6 @@ alias dot='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 alias lzg='lazygit'
 alias lzd='lazydocker'
-
-# PATH
-export GEM_HOME=$HOME/.gems
-export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/go/bin:$HOME/.config/emacs/bin:$HOME/.ghcup/bin:/usr/local/go/bin:$HOME/.cabal/bin:$HOME/.local/bin:/usr/local/android-studio/bin:/usr/local/flutter/bin:/usr/local/cmdline-tools/latest/bin:/usr/local/bin/omnisharp:$HOME/fvm/default/bin:$GEM_HOME/bin:$HOME/.gem/ruby/2.6.0/bin:$HOME/.pub-cache/bin:$PATH
-export GOPATH=$HOME/go
-
-# exports & evals
-export EDITOR='hx'
-export HELIX_RUNTIME=$HOME/pkg/helix/runtime
-
-export LC_ALL=en_US.UTF-8
-
-# Python
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-
-# Node version manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# pnpm
-export PNPM_HOME="/home/frey_do/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
 
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
