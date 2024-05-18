@@ -45,7 +45,7 @@ character = "┊"
 # Keybindings
 [keys.normal]
 "C-A-l" = ":open ~/.config/helix/languages.toml" # Open helix configuration
-"C-A-o" = ":open ~/.config/helix/config.toml" # Open helix language configuration
+"C-A-c" = ":open ~/.config/helix/config.toml" # Open helix language configuration
 "C-A-r" = ":config-reload" # Reload helix configuration
 
 # Move whole line up and down
