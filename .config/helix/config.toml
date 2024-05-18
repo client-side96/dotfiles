@@ -56,4 +56,3 @@ character = "┊"
 
 # Do it the right way <3
 C-r = "redo"
-V = "extend_to_line_bounds"
