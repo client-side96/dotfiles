@@ -14,8 +14,8 @@ bufferline = "multiple"
 popup-border = "all"
 
 [editor.statusline]
-left = ["mode", "spinner", "file-name", "position", "version-control", "workspace-diagnostics"]
-right = ["diagnostics", "file-encoding", "file-type"]
+left = ["mode", "spinner", "file-base-name", "spacer", "version-control"]
+right = ["diagnostics", "workspace-diagnostics", "spacer", "file-type"]
 mode.normal = "N"
 mode.insert = "I"
 mode.select = "S"
