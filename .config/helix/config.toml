@@ -39,7 +39,8 @@ space = "all"
 space = "·"
 
 [editor.indent-guides]
-render = false
+render = true
+character = "┊"
 
 # Keybindings
 [keys.normal]
