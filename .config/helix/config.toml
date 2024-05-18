@@ -10,6 +10,7 @@ soft-wrap.enable = true
 color-modes = true
 idle-timeout = 50
 completion-timeout = 50
+bufferline = "multiple"
 
 [editor.statusline]
 left = ["mode", "spinner", "file-name", "position", "version-control", "workspace-diagnostics"]
