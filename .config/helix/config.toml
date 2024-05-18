@@ -49,9 +49,9 @@ character = "┊"
 "C-A-r" = ":config-reload" # Reload helix configuration
 
 # Move whole line up and down
-"A-k" = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+"C-k" = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 "˚"  =  ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"] # mac
-"A-j" = [ "extend_to_line_bounds", "delete_selection", "paste_after" ]
+"C-j" = [ "extend_to_line_bounds", "delete_selection", "paste_after" ]
 "∆" = [ "extend_to_line_bounds", "delete_selection", "paste_after" ] # mac
 
 # Do it the right way <3
