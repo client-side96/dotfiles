@@ -15,6 +15,7 @@ packages=(
     "emacs" # <3 <3
     "kitty" # The best terminal emulator
     "ttfautohint" # Dependency to build 'My Iosevka'
+    "yazi" # File Manager
 )
 
 echo "Starting installation on your $os system..."
@@ -40,5 +41,3 @@ echo "Installing starship"
 curl -sS https://starship.rs/install.sh | sh
 echo "Installing nvm"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-echo "Installing pnpm"
-curl -fsSL https://get.pnpm.io/install.sh | sh -

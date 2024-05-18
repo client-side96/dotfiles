@@ -8,10 +8,14 @@ undercurl = true
 rulers = [80, 100, 120]
 soft-wrap.enable = true
 color-modes = true
+idle-timeout = 50
+completion-timeout = 50
+bufferline = "multiple"
+popup-border = "all"
 
 [editor.statusline]
-left = ["mode", "spinner", "file-name", "position", "version-control", "workspace-diagnostics"]
-right = ["diagnostics", "file-encoding", "file-type"]
+left = ["mode", "spinner", "file-base-name", "spacer", "version-control"]
+right = ["diagnostics", "workspace-diagnostics", "spacer", "file-type"]
 mode.normal = "N"
 mode.insert = "I"
 mode.select = "S"
@@ -31,21 +35,24 @@ select = "underline"
 [editor.whitespace.render]
 space = "all"
 
+[editor.whitespace.characters]
+space = "·"
+
 [editor.indent-guides]
-render = false
+render = true
+character = "┊"
 
 # Keybindings
 [keys.normal]
 "C-A-l" = ":open ~/.config/helix/languages.toml" # Open helix configuration
-"C-A-o" = ":open ~/.config/helix/config.toml" # Open helix language configuration
+"C-A-c" = ":open ~/.config/helix/config.toml" # Open helix language configuration
 "C-A-r" = ":config-reload" # Reload helix configuration
 
 # Move whole line up and down
-"A-k" = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+"C-k" = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 "˚"  =  ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"] # mac
-"A-j" = [ "extend_to_line_bounds", "delete_selection", "paste_after" ]
+"C-j" = [ "extend_to_line_bounds", "delete_selection", "paste_after" ]
 "∆" = [ "extend_to_line_bounds", "delete_selection", "paste_after" ] # mac
 
 # Do it the right way <3
 C-r = "redo"
-V = "extend_to_line_bounds"
