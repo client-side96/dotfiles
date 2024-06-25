@@ -178,6 +178,30 @@ config.keys = {
   { key = 'v', mods = 'SUPER', action = act.PasteFrom 'Clipboard', },
   -- Show launcher menu
   { key = 'l', mods = 'LEADER', action = wezterm.action.ShowLauncher },
+  -- Open lazygit
+  {
+    key = 'j',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.SpawnCommandInNewTab {
+      args = {
+        os.getenv 'SHELL',
+        '-c',
+        "lazygit"
+      },
+    }
+  },
+  -- Open yazi
+  {
+    key = 'n',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.SpawnCommandInNewTab {
+      args = {
+        os.getenv 'SHELL',
+        '-c',
+        "yazi"
+      },
+    }
+  }
 }
 
 config.key_tables = {
@@ -212,20 +236,6 @@ for i = 1,9 do
   })
 end
 
-
--- Launcher
-config.exit_behavior = "Hold"
-config.launch_menu = {
-  {
-    label = "Locksmith",
-    args = {
-      os.getenv 'SHELL',
-      '-c',
-      "hx"
-    },
-    cwd = env.home .. "/clientside/locksmith"
-  }
-}
 
 -- Show which key table is active in the status area
 wezterm.on('update-right-status', function(window, pane)
