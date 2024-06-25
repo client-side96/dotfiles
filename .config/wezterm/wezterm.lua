@@ -88,6 +88,15 @@ config.font_rules = {
   }
 }
 
+-- Padding
+config.window_padding = {
+  top = "1cell",
+  left = "1cell",
+  bottom = "1cell",
+  right = "1cell",
+}
+
+
 
 -- NOTE: Section - Keybindings:
 
