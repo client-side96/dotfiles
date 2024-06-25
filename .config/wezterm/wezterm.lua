@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 -- NOTE: Section - Appearance:
 
 -- Color theme
-config.color_scheme = 'Rosé Pine (base16)'
+config.color_scheme = 'Catppuccin Latte'
 -- Font
 config.font = wezterm.font 'Maple Mono'
 -- Font size
