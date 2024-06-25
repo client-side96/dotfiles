@@ -3,10 +3,15 @@ local act = wezterm.action
 
 local config = wezterm.config_builder()
 
+local env = {
+  home = "/Users/frey_do"
+}
+
 local colors = {
   white = "#eff1f5",
   light_gray = "#ccd0da",
   lavender = "#7287fd",
+  maroon = "#e64553",
   text = "#4c4f69",
   light_text = "#6c6f85"
 }
@@ -109,8 +114,8 @@ config.skip_close_confirmation_for_processes_named = {
   '.yazi-wrapped'
 }
 
--- Leader key CTRL+SHIFT+Space
-config.leader = { key = 'Space', mods = 'CTRL|SHIFT'}
+-- Leader key CTRL+a
+config.leader = { key = 'a', mods = 'CTRL'}
 config.keys = {
   -- New tab
   {
@@ -128,24 +133,33 @@ config.keys = {
   {
     key = 'Enter',
     mods = 'SUPER',
-    action = act.SplitPane {
-      direction = 'Right',
-      size = { Percent = 50 },
-    },
+    action = act.ActivateKeyTable {
+      name = 'split_pane',
+      one_shot = true,
+    }
   },
   {
     key = 'Enter',
     mods = 'CTRL|SHIFT',
-    action = act.SplitPane {
-      direction = 'Right',
-      size = { Percent = 50 },
-    },
+    action = act.ActivateKeyTable {
+      name = 'split_pane',
+      one_shot = true,
+    }
   },
   -- Close current pane
   {
     key = 'w',
     mods = 'CTRL|SHIFT',
     action = act.CloseCurrentPane { confirm = true }
+  },
+  -- Resize pane
+  {
+    key = 'r',
+    mods = 'CTRL|SHIFT',
+    action = act.ActivateKeyTable {
+      name = 'resize_pane',
+      one_shot = false,
+    }
   },
   -- Navigate previous and next pane
   {
@@ -162,7 +176,33 @@ config.keys = {
   { key = 'c', mods = 'SUPER', action = act.CopyTo 'Clipboard', },
   -- Paste from clipboard
   { key = 'v', mods = 'SUPER', action = act.PasteFrom 'Clipboard', },
+  -- Show launcher menu
+  { key = 'l', mods = 'LEADER', action = wezterm.action.ShowLauncher },
 }
+
+config.key_tables = {
+  resize_pane = {
+    { key = 'LeftArrow', action = act.AdjustPaneSize { 'Left', 1 } },
+    { key = 'h', action = act.AdjustPaneSize { 'Left', 1 } },
+
+    { key = 'RightArrow', action = act.AdjustPaneSize { 'Right', 1 } },
+    { key = 'l', action = act.AdjustPaneSize { 'Right', 1 } },
+
+    { key = 'UpArrow', action = act.AdjustPaneSize { 'Up', 1 } },
+    { key = 'k', action = act.AdjustPaneSize { 'Up', 1 } },
+
+    { key = 'DownArrow', action = act.AdjustPaneSize { 'Down', 1 } },
+    { key = 'j', action = act.AdjustPaneSize { 'Down', 1 } },
+
+    -- Cancel the mode by pressing escape
+    { key = 'Escape', action = 'PopKeyTable' },
+  },
+  split_pane = {
+    { key = 'l', action = act.SplitPane { direction = "Right", size = { Percent = 50 } } },
+    { key = 'j', action = act.SplitPane { direction = "Down", size = { Percent = 50 } } },
+  }
+}
+
   -- Navigate tabs by index
 for i = 1,9 do
   table.insert(config.keys, {
@@ -171,5 +211,35 @@ for i = 1,9 do
     action = act.ActivateTab(i - 1),
   })
 end
+
+
+-- Launcher
+config.exit_behavior = "Hold"
+config.launch_menu = {
+  {
+    label = "Locksmith",
+    args = {
+      os.getenv 'SHELL',
+      '-c',
+      "hx"
+    },
+    cwd = env.home .. "/clientside/locksmith"
+  }
+}
+
+-- Show which key table is active in the status area
+wezterm.on('update-right-status', function(window, pane)
+  local name = window:active_key_table()
+  if name then
+    name = ' TABLE: ' .. name .. " "
+  end
+  window:set_right_status(
+    wezterm.format{
+      {Foreground={Color=colors.maroon}},
+      {Background={Color=colors.light_gray}},
+      {Text=(name or '')}
+    }
+  )
+end)
 
 return config
