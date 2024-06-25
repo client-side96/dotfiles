@@ -3,6 +3,14 @@ local act = wezterm.action
 
 local config = wezterm.config_builder()
 
+local colors = {
+  white = "#eff1f5",
+  light_gray = "#ccd0da",
+  lavender = "#7287fd",
+  text = "#4c4f69",
+  light_text = "#6c6f85"
+}
+
 local fonts = {
   default = "Monaspace Neon",
   italic = "Monaspace Krypton"
@@ -12,6 +20,47 @@ local fonts = {
 
 -- Color theme
 config.color_scheme = 'Catppuccin Latte'
+
+config.colors = {
+  tab_bar = {
+    active_tab = {
+      bg_color = colors.lavender,
+      fg_color = colors.white
+    },
+    inactive_tab = {
+      bg_color = colors.white,
+      fg_color = colors.light_text
+    },
+    inactive_tab_hover = {
+      bg_color = colors.light_gray,
+      fg_color = colors.text
+    },
+    new_tab = {
+      bg_color = colors.white,
+      fg_color = colors.lavender
+    },
+    new_tab_hover = {
+      bg_color = colors.light_gray,
+      fg_color = colors.lavender
+    }
+  }
+}
+
+-- Hide titlebar
+config.window_decorations = "RESIZE"
+
+-- Native tab bar
+config.use_fancy_tab_bar = true
+config.window_frame = {
+  font = wezterm.font {
+    family = fonts.default,
+    weight = "Medium"
+  },
+  font_size = 11,
+  active_titlebar_bg = colors.white,
+  inactive_titlebar_bg = colors.light_gray
+}
+
 -- Font
 config.font_size = 13
 config.font = wezterm.font {
