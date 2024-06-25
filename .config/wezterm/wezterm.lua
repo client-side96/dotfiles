@@ -3,24 +3,54 @@ local act = wezterm.action
 
 local config = wezterm.config_builder()
 
+local fonts = {
+  default = "Monaspace Neon",
+  italic = "Monaspace Krypton"
+}
+
 -- NOTE: Section - Appearance:
 
 -- Color theme
 config.color_scheme = 'Catppuccin Latte'
 -- Font
-config.font = wezterm.font 'Maple Mono'
--- Font size
-config.font_size = 12.5
+config.font_size = 13
+config.font = wezterm.font {
+  family = fonts.default,
+  harfbuzz_features = {
+    "ss01", "ss02", "ss03", "ss04",
+    "ss05", "ss06", "ss07", "ss08",
+    "ss09", "calt", "liga"
+  }
+}
+
+config.font_rules = {
+  {
+    intensity = "Normal",
+    italic = true,
+    font = wezterm.font {
+      family = fonts.italic,
+      italic = true,
+      harfbuzz_features = {
+        "ss01", "ss02", "ss03", "ss04",
+        "ss05", "ss06", "ss07", "ss08",
+        "ss09", "calt", "liga"
+      },
+    }
+  }
+}
+
 
 -- NOTE: Section - Keybindings:
 
 -- I want to configure everything on my own
 config.disable_default_key_bindings = true
+
 -- For following processes I don't want to show a confirmation dialog when closing a tab
 config.skip_close_confirmation_for_processes_named = {
   'zsh',
   '.yazi-wrapped'
 }
+
 -- Leader key CTRL+SHIFT+Space
 config.leader = { key = 'Space', mods = 'CTRL|SHIFT'}
 config.keys = {
