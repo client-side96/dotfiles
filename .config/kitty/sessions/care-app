@@ -1,24 +1,3 @@
-new_tab Git
-
-layout stack
-cd ~/devel/care/app-mobile
-launch --title "Git (App)" --hold lazygit
-
-cd ~/devel/care/app-middleware
-launch --title "Git (Middleware)" --hold lazygit
-
-cd ~/devel/care/virtual-coach-app
-launch --title "Git (Chat API)" --hold lazygit
-
-cd ~/devel/care/app-middleware-deployment
-launch --title "Git (Terraform)" --hold lazygit
-
-
-new_tab Finder
-cd
-launch --title "Finder" --hold yazi
-
-
 new_tab Mobile App
 
 cd ~/devel/care/app-mobile

@@ -28,5 +28,7 @@ alias lzd='lazydocker'
 [[ -f /Users/mvst/.dart-cli-completion/zsh-config.zsh ]] && . /Users/mvst/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
+eval "$(pyenv init -)"
+eval "$(rbenv init - zsh)"
 eval "$(starship init zsh)"
 
