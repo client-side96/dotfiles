@@ -1,0 +1,8 @@
+[manager]
+ratio = [0, 8, 0]
+show_hidden = true
+
+[opener]
+edit = [
+	{ run = '$HOME/scripts/helix_opener.sh "$@"', block = true },
+]

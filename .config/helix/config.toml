@@ -16,9 +16,9 @@ popup-border = "all"
 [editor.statusline]
 left = ["mode", "spinner", "file-base-name", "spacer", "version-control"]
 right = ["diagnostics", "workspace-diagnostics", "spacer", "file-type"]
-mode.normal = "N"
-mode.insert = "I"
-mode.select = "S"
+mode.normal = "NOR"
+mode.insert = "INS"
+mode.select = "SEL"
 
 [editor.lsp]
 display-messages = true
@@ -47,6 +47,10 @@ character = "┊"
 "C-A-l" = ":open ~/.config/helix/languages.toml" # Open helix configuration
 "C-A-c" = ":open ~/.config/helix/config.toml" # Open helix language configuration
 "C-A-r" = ":config-reload" # Reload helix configuration
+"C-g" = ":sh ~/scripts/helix_blame.sh"
+
+[keys.normal.space]
+"n" = ":sh ~/scripts/helix_filetree.sh"
 
 # Move whole line up and down
 "C-k" = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]

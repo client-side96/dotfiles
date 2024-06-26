@@ -1,5 +1,6 @@
 local wezterm = require 'wezterm'
 local act = wezterm.action
+local mux = wezterm.mux
 
 local config = wezterm.config_builder()
 
@@ -111,7 +112,8 @@ config.disable_default_key_bindings = true
 -- For following processes I don't want to show a confirmation dialog when closing a tab
 config.skip_close_confirmation_for_processes_named = {
   'zsh',
-  '.yazi-wrapped'
+  '.yazi-wrapped',
+  'yazi',
 }
 
 -- Leader key CTRL+a
@@ -129,6 +131,8 @@ config.keys = {
     mods = 'SUPER',
     action = act.CloseCurrentTab { confirm = true },
   },
+  -- Close window
+  { key = 'q', mods = 'CMD', action = wezterm.action.QuitApplication },
   -- Split vertically right
   {
     key = 'Enter',
@@ -178,30 +182,14 @@ config.keys = {
   { key = 'v', mods = 'SUPER', action = act.PasteFrom 'Clipboard', },
   -- Show launcher menu
   { key = 'l', mods = 'LEADER', action = wezterm.action.ShowLauncher },
-  -- Open lazygit
+  -- Show workspace launcher
   {
-    key = 'j',
+    key = 'p',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action.SpawnCommandInNewTab {
-      args = {
-        os.getenv 'SHELL',
-        '-c',
-        "lazygit"
-      },
-    }
+    action = act.ShowLauncherArgs {
+      flags = 'FUZZY|WORKSPACES',
+    },
   },
-  -- Open yazi
-  {
-    key = 'n',
-    mods = 'CTRL|SHIFT',
-    action = wezterm.action.SpawnCommandInNewTab {
-      args = {
-        os.getenv 'SHELL',
-        '-c',
-        "yazi"
-      },
-    }
-  }
 }
 
 config.key_tables = {
@@ -239,17 +227,99 @@ end
 
 -- Show which key table is active in the status area
 wezterm.on('update-right-status', function(window, pane)
-  local name = window:active_key_table()
-  if name then
-    name = ' TABLE: ' .. name .. " "
+  local workspace_name = " " .. window:active_workspace() .. " "
+  local key_table_name = window:active_key_table()
+  if key_table_name then
+    key_table_name = ' TABLE: ' .. key_table_name .. " "
   end
-  window:set_right_status(
-    wezterm.format{
-      {Foreground={Color=colors.maroon}},
-      {Background={Color=colors.light_gray}},
-      {Text=(name or '')}
+  if key_table_name then
+    return window:set_right_status(
+      wezterm.format{
+        {Foreground={Color=colors.maroon}},
+        {Background={Color=colors.light_gray}},
+        {Text=(key_table_name or '')}
+      }
+    )
+  end
+  if workspace_name then
+    return window:set_right_status(
+      wezterm.format{
+        {Foreground={Color=colors.white}},
+        {Background={Color=colors.lavender}},
+        {Text=(workspace_name or '')}
+      }
+    )
+  end
+end)
+
+wezterm.on('gui-startup', function(cmd)
+  -- allow `wezterm start -- something` to affect what we spawn
+  -- in our initial window
+  local args = {}
+  if cmd then
+    args = cmd.args
+  end
+
+  -- Set a workspace for coding on a current project
+  -- Top pane is for the editor, bottom pane is for the build tool
+  local project_dir = wezterm.home_dir .. '/devel/care'
+  local mobile_app_dir = project_dir .. '/app-mobile'
+  local middleware_dir = project_dir .. '/app-middleware'
+  local virtual_coach_dir = project_dir .. '/virtual-coach-app'
+  local deployment_dir = project_dir .. '/app-middleware-deployment'
+
+  local function setup_dotfiles(first_dot, second_dot)
+    local tab, pane, window = mux.spawn_window {
+      workspace = "dotfiles",
+      cwd = wezterm.home_dir,
     }
-  )
+
+    local pane_2 = pane:split {
+      workspace = "dotfiles",
+      cwd = wezterm.home_dir,
+      size = 0.5,
+      direction = "Right"
+    }
+    pane:activate()
+    pane:send_text ('hx ' .. first_dot .. '\n')
+    pane_2:send_text ('hx ' .. second_dot .. '\n')
+  end
+
+  local function setup_code_project(workspace, cwd)
+    local editor_tab, editor_pane, window = mux.spawn_window {
+      workspace = workspace,
+      cwd = cwd,
+    }
+    editor_tab:set_title '🔎 Editor'
+    local build_pane = editor_pane:split {
+      workspace = workspace,
+      direction = 'Bottom',
+      size = 0.2,
+      cwd = cwd,
+    }
+    local git_tab, git_pane, _ = window:spawn_tab {
+      workspace = workspace,
+      cwd = cwd,
+    }
+    git_tab:set_title '🌳 Git'
+
+    editor_pane:activate()
+    editor_pane:send_text 'hx\n'
+    git_pane:send_text 'lazygit\n'
+    return window
+  end
+
+  local window = setup_code_project('care-mobile', mobile_app_dir)
+  window:gui_window():maximize()
+
+  setup_code_project('care-middleware', middleware_dir)
+  setup_code_project('care-va', virtual_coach_dir)
+  setup_code_project('care-deployment', deployment_dir)
+  setup_dotfiles('~/.config/wezterm/','~/.config/helix/')
+
+
+  -- -- We want to startup in the coding workspace
+  mux.set_active_workspace 'care-mobile'
 end)
 
 return config
