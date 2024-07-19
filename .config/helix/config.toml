@@ -42,6 +42,9 @@ space = "·"
 render = true
 character = "┊"
 
+[editor.inline-diagnostics]
+cursor-line = "hint"
+
 # Keybindings
 [keys.normal]
 "C-A-l" = ":open ~/.config/helix/languages.toml" # Open helix configuration
