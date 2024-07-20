@@ -4,6 +4,9 @@ local mux = wezterm.mux
 
 local config = wezterm.config_builder()
 
+local projects = require 'projects'
+local workspace = require 'workspace'
+
 local env = {
   home = "/Users/frey_do"
 }
@@ -287,74 +290,15 @@ wezterm.on('gui-startup', function(cmd)
     args = cmd.args
   end
 
-  -- Set a workspace for coding on a current project
-  -- Top pane is for the editor, bottom pane is for the build tool
-  local project_dir = wezterm.home_dir .. '/devel/care'
-  local mobile_app_dir = project_dir .. '/app-mobile'
-  local middleware_dir = project_dir .. '/app-middleware'
-  local virtual_coach_dir = project_dir .. '/virtual-coach-app'
-  local deployment_dir = project_dir .. '/app-middleware-deployment'
-
-  local function setup_dotfiles(first_dot, second_dot)
-    local tab, pane, window = mux.spawn_window {
-      workspace = "dotfiles",
-      cwd = wezterm.home_dir,
-    }
-
-    local pane_2 = pane:split {
-      workspace = "dotfiles",
-      cwd = wezterm.home_dir,
-      size = 0.5,
-      direction = "Right"
-    }
-    pane:activate()
-    pane:send_text ('hx ' .. first_dot .. '\n')
-    pane_2:send_text ('hx ' .. second_dot .. '\n')
-  end
-
-  local function setup_ssh_project(host, prefix)
-    local tab, pane, window = mux.spawn_window {
-      workspace = "ssh-" .. host
-    }
-    tab:set_title (prefix .. ' Connection: ' .. host)
-    pane:send_text ('ssh ' .. host .. '\n')
-  end
-
-  local function setup_code_project(workspace, cwd)
-    local editor_tab, editor_pane, window = mux.spawn_window {
-      workspace = workspace,
-      cwd = cwd,
-    }
-    editor_tab:set_title '🔎 Editor'
-    local build_pane = editor_pane:split {
-      workspace = workspace,
-      direction = 'Bottom',
-      size = 0.2,
-      cwd = cwd,
-    }
-    local git_tab, git_pane, _ = window:spawn_tab {
-      workspace = workspace,
-      cwd = cwd,
-    }
-    git_tab:set_title '🌳 Git'
-
-    editor_pane:activate()
-    editor_pane:send_text 'hx\n'
-    git_pane:send_text 'lazygit\n'
-    return window
-  end
-
-  local window = setup_code_project('care-mobile', mobile_app_dir)
+  local window = workspace.setup_dotfiles('~/.config/wezterm/','~/.config/helix/')
   window:gui_window():maximize()
 
-  setup_code_project('care-middleware', middleware_dir)
-  setup_code_project('care-va', virtual_coach_dir)
-  setup_code_project('care-deployment', deployment_dir)
+  for name, dir in pairs(projects) do
+    workspace.setup_code_project(name, dir)
+  end
 
-  setup_dotfiles('~/.config/wezterm/','~/.config/helix/')
-
-  setup_ssh_project('care-staging', "🟡")
-  setup_ssh_project('care-prod', "🔴")
+  workspace.setup_ssh_project('care-staging', "🟡")
+  workspace.setup_ssh_project('care-prod', "🔴")
 
 
   -- -- We want to startup in the coding workspace
