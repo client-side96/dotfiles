@@ -1,22 +1,3 @@
-[language-server.eslint]
-args = ["--stdio"]
-command = "vscode-eslint-language-server"
-
-[language-server.eslint.config]
-format = false
-nodePath = ""
-onIgnoredFiles = "off"
-quiet = false
-rulesCustomizations = []
-run = "onType"
-useESLintClass = false
-validate = "on"
-codeAction = { disableRuleComment = { enable = true , location = "separateLine" } , showDocumentation = { enable = true } }
-codeActionOnSave = { mode = "all" }
-experimental = { }
-problems = { shortenToSingleLine = false }
-workingDirectory = { mode = "auto" }
-
 [language-server.omnisharp]
 command = "OmniSharp"
 args = ["-lsp"]
@@ -41,19 +22,19 @@ auto-format = true
 name = "javascript"
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true
-language-servers = [ "typescript-language-server", "eslint" ]
+language-servers = [ "typescript-language-server", "vscode-eslint-language-server" ]
 
 [[language]]
 name = "typescript"
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true
-language-servers = [ "typescript-language-server", "eslint" ]
+language-servers = [ "typescript-language-server", "vscode-eslint-language-server" ]
 
 [[language]]
 name = "tsx"
 formatter = { command = 'prettier' , args = ["--parser", "typescript"] }
 auto-format = true
-language-servers = [ "typescript-language-server", "eslint" ]
+language-servers = [ "typescript-language-server", "vscode-eslint-language-server" ]
 
 [[language]]
 name = "haskell"

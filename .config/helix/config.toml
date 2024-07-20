@@ -1,4 +1,4 @@
-theme = "catppuccin_latte"
+theme = "gruvbox_dark_hard"
 
 [editor]
 line-number = "relative"
@@ -10,8 +10,8 @@ soft-wrap.enable = true
 color-modes = true
 idle-timeout = 50
 completion-timeout = 50
-bufferline = "multiple"
 popup-border = "all"
+end-of-line-diagnostics = "hint"
 
 [editor.statusline]
 left = ["mode", "spinner", "file-base-name", "spacer", "version-control"]
@@ -43,7 +43,7 @@ render = true
 character = "┊"
 
 [editor.inline-diagnostics]
-cursor-line = "hint"
+cursor-line = "warning"
 
 # Keybindings
 [keys.normal]
