@@ -1,38 +1,37 @@
 local wezterm = require 'wezterm'
 local mux = wezterm.mux
 
-local workspace = {}
+local code_projects = require 'code_projects'
+local ssh_projects = require 'ssh_projects'
 
-function workspace.setup_dotfiles(first_dot, second_dot)
+local dotfiles_project = 'dotfiles'
+
+local editor_cmd = 'hx'
+local git_cmd = 'lazygit'
+local ssh_cmd = 'ssh'
+
+local function setup_dotfiles()
   local tab, pane, window = mux.spawn_window {
-    workspace = "dotfiles",
+    workspace = dotfiles_project,
     cwd = wezterm.home_dir,
   }
 
-  local pane_2 = pane:split {
-    workspace = "dotfiles",
-    cwd = wezterm.home_dir,
-    size = 0.5,
-    direction = "Right"
-  }
-  pane:activate()
-  pane:send_text ('hx ' .. first_dot .. '\n')
-  pane_2:send_text ('hx ' .. second_dot .. '\n')
+  pane:send_text (editor_cmd .. ' ' .. '~/.config/wezterm/\n')
 
   return window
 end
 
-function workspace.setup_ssh_project(host, prefix)
+local function setup_ssh_project(host, prefix)
   local tab, pane, window = mux.spawn_window {
     workspace = "ssh-" .. host
   }
   tab:set_title (prefix .. ' Connection: ' .. host)
-  pane:send_text ('ssh ' .. host .. '\n')
+  pane:send_text (ssh_cmd .. ' ' .. host .. '\n')
 
   return window
 end
 
-function workspace.setup_code_project(workspace, cwd)
+local function setup_code_project(workspace, cwd)
   local editor_tab, editor_pane, window = mux.spawn_window {
     workspace = workspace,
     cwd = cwd,
@@ -51,9 +50,29 @@ function workspace.setup_code_project(workspace, cwd)
   git_tab:set_title '🌳 Git'
 
   editor_pane:activate()
-  editor_pane:send_text 'hx\n'
-  git_pane:send_text 'lazygit\n'
+  editor_pane:send_text (editor_cmd .. '\n')
+  git_pane:send_text (git_cmd .. '\n')
   return window
 end
+
+
+local workspace = {}
+
+function workspace.init()
+  local window = setup_dotfiles()
+
+  window:gui_window():maximize()
+
+  for name, dir in pairs(code_projects) do
+    setup_code_project(name, dir)
+  end
+
+  for host, marker in pairs(ssh_projects) do
+    setup_ssh_project(host, marker)
+  end
+
+  mux.set_active_workspace (dotfiles_project)
+end
+
 
 return workspace

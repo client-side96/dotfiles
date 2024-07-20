@@ -4,7 +4,6 @@ local mux = wezterm.mux
 
 local config = wezterm.config_builder()
 
-local projects = require 'projects'
 local workspace = require 'workspace'
 
 local env = {
@@ -179,6 +178,8 @@ config.keys = {
       one_shot = true,
     }
   },
+    -- Show debug overlay
+  { key = 'D', mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
   -- Close current pane
   {
     key = 'w',
@@ -290,19 +291,7 @@ wezterm.on('gui-startup', function(cmd)
     args = cmd.args
   end
 
-  local window = workspace.setup_dotfiles('~/.config/wezterm/','~/.config/helix/')
-  window:gui_window():maximize()
-
-  for name, dir in pairs(projects) do
-    workspace.setup_code_project(name, dir)
-  end
-
-  workspace.setup_ssh_project('care-staging', "🟡")
-  workspace.setup_ssh_project('care-prod', "🔴")
-
-
-  -- -- We want to startup in the coding workspace
-  mux.set_active_workspace 'care-mobile'
+  workspace.init()
 end)
 
 return config
