@@ -1,4 +1,4 @@
-theme = "catppuccin_latte"
+theme = "gruvbox_dark_hard"
 
 [editor]
 line-number = "relative"
@@ -10,15 +10,15 @@ soft-wrap.enable = true
 color-modes = true
 idle-timeout = 50
 completion-timeout = 50
-bufferline = "multiple"
 popup-border = "all"
+end-of-line-diagnostics = "hint"
 
 [editor.statusline]
 left = ["mode", "spinner", "file-base-name", "spacer", "version-control"]
 right = ["diagnostics", "workspace-diagnostics", "spacer", "file-type"]
-mode.normal = "N"
-mode.insert = "I"
-mode.select = "S"
+mode.normal = "NOR"
+mode.insert = "INS"
+mode.select = "SEL"
 
 [editor.lsp]
 display-messages = true
@@ -43,13 +43,17 @@ render = true
 character = "┊"
 
 [editor.inline-diagnostics]
-cursor-line = "hint"
+cursor-line = "warning"
 
 # Keybindings
 [keys.normal]
 "C-A-l" = ":open ~/.config/helix/languages.toml" # Open helix configuration
 "C-A-c" = ":open ~/.config/helix/config.toml" # Open helix language configuration
 "C-A-r" = ":config-reload" # Reload helix configuration
+"C-g" = ":sh ~/scripts/helix_blame.sh"
+
+[keys.normal.space]
+"n" = ":sh ~/scripts/helix_filetree.sh"
 
 # Move whole line up and down
 "C-k" = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
