@@ -9,12 +9,38 @@ local env = {
 }
 
 local colors = {
-  white = "#eff1f5",
-  light_gray = "#ccd0da",
-  lavender = "#7287fd",
-  maroon = "#e64553",
-  text = "#4c4f69",
-  light_text = "#6c6f85"
+  background_hard = "#1d2021",
+  background_soft = "#32302f",
+  background_default = "#282828",
+  background_0 = "#282828",
+  background_1 = "#3c3836",
+  background_2 = "#504945",
+  background_3 = "#665c54",
+  background_4 = "#7c6f64",
+  foreground = "#ebdbb2",
+  foreground_0 = "#fbf1c7",
+  foreground_1 = "#ebdbb2",
+  foreground_2 = "#d5c4a1",
+  foreground_3 = "#bdae93",
+  foreground_4 = "#a89984",
+  red = "#cc241d",
+  red_light = "#fb4934",
+  green = "#98971a",
+  light_green = "#b8bb26",
+  yellow = "#d79921",
+  light_yellow = "#fabd2f",
+  blue = "#458588",
+  light_blue = "#83a598",
+  purple = "#b16286",
+  light_purple = "#d3869b",
+  aqua = "#689d6a",
+  light_aqua = "#8ec07c",
+  orange = "#d65d0e",
+  light_orange = "",
+  dark_gray = "#928374",
+  gray = "#928374",
+  light_gray = "#a89984",
+  white = "#ffffff",
 }
 
 local fonts = {
@@ -25,29 +51,29 @@ local fonts = {
 -- NOTE: Section - Appearance:
 
 -- Color theme
-config.color_scheme = 'Catppuccin Latte'
+config.color_scheme = 'Gruvbox dark, hard (base16)'
 
 config.colors = {
   tab_bar = {
     active_tab = {
-      bg_color = colors.lavender,
-      fg_color = colors.white
+      bg_color = colors.aqua,
+      fg_color = colors.white,
     },
     inactive_tab = {
-      bg_color = colors.white,
-      fg_color = colors.light_text
+      bg_color = colors.background_hard,
+      fg_color = colors.foreground_4,
     },
     inactive_tab_hover = {
-      bg_color = colors.light_gray,
-      fg_color = colors.text
+      bg_color = colors.background_0,
+      fg_color = colors.foreground,
     },
     new_tab = {
-      bg_color = colors.white,
-      fg_color = colors.lavender
+      bg_color = colors.background_hard,
+      fg_color = colors.light_green,
     },
     new_tab_hover = {
-      bg_color = colors.light_gray,
-      fg_color = colors.lavender
+      bg_color = colors.background_0,
+      fg_color = colors.light_green
     }
   }
 }
@@ -63,8 +89,8 @@ config.window_frame = {
     weight = "Medium"
   },
   font_size = 11,
-  active_titlebar_bg = colors.white,
-  inactive_titlebar_bg = colors.light_gray
+  active_titlebar_bg = colors.background_hard,
+  inactive_titlebar_bg = colors.background_1,
 }
 
 -- Font
@@ -235,17 +261,18 @@ wezterm.on('update-right-status', function(window, pane)
   if key_table_name then
     return window:set_right_status(
       wezterm.format{
-        {Foreground={Color=colors.maroon}},
-        {Background={Color=colors.light_gray}},
+        {Foreground={Color=colors.red_light}},
+        {Background={Color=colors.background_1}},
         {Text=(key_table_name or '')}
       }
     )
   end
   if workspace_name then
+    local bg_color = string.find(workspace_name, 'ssh') and colors.red or colors.light_aqua
     return window:set_right_status(
       wezterm.format{
-        {Foreground={Color=colors.white}},
-        {Background={Color=colors.lavender}},
+        {Foreground={Color=colors.background_hard}},
+        {Background={Color=bg_color}},
         {Text=(workspace_name or '')}
       }
     )
@@ -285,6 +312,14 @@ wezterm.on('gui-startup', function(cmd)
     pane_2:send_text ('hx ' .. second_dot .. '\n')
   end
 
+  local function setup_ssh_project(host, prefix)
+    local tab, pane, window = mux.spawn_window {
+      workspace = "ssh-" .. host
+    }
+    tab:set_title (prefix .. ' Connection: ' .. host)
+    pane:send_text ('ssh ' .. host .. '\n')
+  end
+
   local function setup_code_project(workspace, cwd)
     local editor_tab, editor_pane, window = mux.spawn_window {
       workspace = workspace,
@@ -315,7 +350,11 @@ wezterm.on('gui-startup', function(cmd)
   setup_code_project('care-middleware', middleware_dir)
   setup_code_project('care-va', virtual_coach_dir)
   setup_code_project('care-deployment', deployment_dir)
+
   setup_dotfiles('~/.config/wezterm/','~/.config/helix/')
+
+  setup_ssh_project('care-staging', "🟡")
+  setup_ssh_project('care-prod', "🔴")
 
 
   -- -- We want to startup in the coding workspace
