@@ -1,8 +1,8 @@
 local wezterm = require 'wezterm'
 local mux = wezterm.mux
 
-local code_projects = require 'code_projects'
-local ssh_projects = require 'ssh_projects'
+local code_projects = require 'env.code_projects'
+local ssh_projects = require 'env.ssh_projects'
 
 local dotfiles_project = 'dotfiles'
 

@@ -1,50 +1,29 @@
 local wezterm = require 'wezterm'
-local act = wezterm.action
-local mux = wezterm.mux
+
+package.path = package.path .. ';./env/?.lua;./modules/?.lua'
 
 local config = wezterm.config_builder()
 
-local workspace = require 'workspace'
-local colors = require 'colors'
-local fonts = require 'fonts'
-local keymaps = require 'keymaps'
+local workspace_config = require 'modules.workspace'
+local colors_config = require 'modules.colors'
+local fonts_config = require 'modules.fonts'
+local keymaps_config = require 'modules.keymaps'
+local window_config = require 'modules.window'
+local status_config = require 'modules.status'
 
 
 
 -- Color configuration
-colors.apply_to_config(config)
+colors_config.apply_to_config(config)
 
 -- Font configuration
-fonts.apply_to_config(config)
+fonts_config.apply_to_config(config)
 
--- Hide titlebar
-config.window_decorations = "RESIZE"
+-- Window configuration
+window_config.apply_to_config(config)
 
--- Native tab bar
-config.use_fancy_tab_bar = true
-config.window_frame = {
-  font = wezterm.font {
-    family = fonts.default,
-    weight = "Medium"
-  },
-  font_size = 11,
-  active_titlebar_bg = colors.background_hard,
-  inactive_titlebar_bg = colors.background_1,
-}
-
-
--- Padding
-config.window_padding = {
-  top = "1cell",
-  left = "1cell",
-  bottom = "1cell",
-  right = "1cell",
-}
-
-
-
--- NOTE: Section - Keybindings:
-keymaps.apply_to_config(config)
+-- Keybindings
+keymaps_config.apply_to_config(config)
 
 
 -- For following processes I don't want to show a confirmation dialog when closing a tab
@@ -54,35 +33,9 @@ config.skip_close_confirmation_for_processes_named = {
   'yazi',
 }
 
--- Leader key CTRL+a
-
-
 -- Show which key table is active in the status area
 wezterm.on('update-right-status', function(window, pane)
-  local workspace_name = " " .. window:active_workspace() .. " "
-  local key_table_name = window:active_key_table()
-  if key_table_name then
-    key_table_name = ' TABLE: ' .. key_table_name .. " "
-  end
-  if key_table_name then
-    return window:set_right_status(
-      wezterm.format{
-        {Foreground={Color=colors.red_light}},
-        {Background={Color=colors.background_1}},
-        {Text=(key_table_name or '')}
-      }
-    )
-  end
-  if workspace_name then
-    local bg_color = string.find(workspace_name, 'ssh') and colors.red or colors.light_aqua
-    return window:set_right_status(
-      wezterm.format{
-        {Foreground={Color=colors.background_hard}},
-        {Background={Color=bg_color}},
-        {Text=(workspace_name or '')}
-      }
-    )
-  end
+  status_config.apply_to_config(window, pane)
 end)
 
 wezterm.on('gui-startup', function(cmd)
@@ -93,7 +46,7 @@ wezterm.on('gui-startup', function(cmd)
     args = cmd.args
   end
 
-  workspace.init()
+  workspace_config.init()
 end)
 
 return config
