@@ -10,6 +10,7 @@ function window.apply_to_config(config)
   config.window_decorations = "RESIZE"
 
   -- Native tab bar
+  config.enable_tab_bar = false
   config.use_fancy_tab_bar = true
   config.window_frame = {
     font = wezterm.font {
@@ -17,8 +18,8 @@ function window.apply_to_config(config)
       weight = "Medium"
     },
     font_size = 11,
-    active_titlebar_bg = colors.background_hard,
-    inactive_titlebar_bg = colors.background_1,
+    -- active_titlebar_bg = colors.base,
+    -- inactive_titlebar_bg = colors.overlay,
   }
 
 

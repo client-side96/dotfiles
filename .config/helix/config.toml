@@ -1,20 +1,24 @@
-theme = "gruvbox_dark_hard"
+theme = "dark_plus"
 
 [editor]
-line-number = "relative"
+line-number = "absolute"
 cursorline = true
+cursorcolumn = true
 mouse = false
 undercurl = true
 rulers = [80, 100, 120]
 soft-wrap.enable = true
 color-modes = true
+true-color = true
 idle-timeout = 50
 completion-timeout = 50
-popup-border = "all"
+# popup-border = "all"
 end-of-line-diagnostics = "hint"
+completion-replace = true
 
 [editor.statusline]
 left = ["mode", "spinner", "file-base-name", "spacer", "version-control"]
+center = ["register"]
 right = ["diagnostics", "workspace-diagnostics", "spacer", "file-type"]
 mode.normal = "NOR"
 mode.insert = "INS"
@@ -44,22 +48,10 @@ character = "┊"
 
 [editor.inline-diagnostics]
 cursor-line = "warning"
+other-lines = "hint"
+prefix-len = 3
 
 # Keybindings
 [keys.normal]
 "C-A-l" = ":open ~/.config/helix/languages.toml" # Open helix configuration
-"C-A-c" = ":open ~/.config/helix/config.toml" # Open helix language configuration
-"C-A-r" = ":config-reload" # Reload helix configuration
-"C-g" = ":sh ~/scripts/helix_blame.sh"
-
-[keys.normal.space]
-"n" = ":sh ~/scripts/helix_filetree.sh"
-
-# Move whole line up and down
-"C-k" = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
-"˚"  =  ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"] # mac
-"C-j" = [ "extend_to_line_bounds", "delete_selection", "paste_after" ]
-"∆" = [ "extend_to_line_bounds", "delete_selection", "paste_after" ] # mac
-
-# Do it the right way <3
-C-r = "redo"
+"C-A-c" = ":open ~/.config/helix/config.toml"    # Open helix language configuration

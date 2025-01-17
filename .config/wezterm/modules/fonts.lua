@@ -1,14 +1,16 @@
 local wezterm = require 'wezterm'
 
 local fonts = {
-  default = "Monaspace Neon",
-  italic = "Monaspace Krypton"
+  default = "Fira Code",
+  italic = "Fira Code"
 }
 
 function fonts.apply_to_config(config)
-  config.font_size = 13
+  config.font_size = 14
+  config.line_height = 1.2
   config.font = wezterm.font {
     family = fonts.default,
+    weight = "DemiBold",
     harfbuzz_features = {
       "ss01", "ss02", "ss03", "ss04",
       "ss05", "ss06", "ss07", "ss08",
@@ -31,6 +33,7 @@ function fonts.apply_to_config(config)
       }
     }
   }
+  config.freetype_load_target = "HorizontalLcd"
 end
 
 return fonts
