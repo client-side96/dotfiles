@@ -11,36 +11,36 @@ function keymaps.apply_to_config(config)
 
   config.keys = {
     -- New tab
-    {
-      key = 't',
-      mods = 'SUPER',
-      action = act.SpawnTab 'CurrentPaneDomain',
-    },
+    -- {
+    --   key = 't',
+    --   mods = 'SUPER',
+    --   action = act.SpawnTab 'CurrentPaneDomain',
+    -- },
     -- Close tab
-    {
-      key = 'w',
-      mods = 'SUPER',
-      action = act.CloseCurrentTab { confirm = true },
-    },
+    -- {
+    --   key = 'w',
+    --   mods = 'SUPER',
+    --   action = act.CloseCurrentTab { confirm = true },
+    -- },
     -- Close window
     { key = 'q', mods = 'CMD', action = wezterm.action.QuitApplication },
     -- Split vertically right
-    {
-      key = 'Enter',
-      mods = 'SUPER',
-      action = act.ActivateKeyTable {
-        name = 'split_pane',
-        one_shot = true,
-      }
-    },
-    {
-      key = 'Enter',
-      mods = 'CTRL|SHIFT',
-      action = act.ActivateKeyTable {
-        name = 'split_pane',
-        one_shot = true,
-      }
-    },
+    -- {
+    --   key = 'Enter',
+    --   mods = 'SUPER',
+    --   action = act.ActivateKeyTable {
+    --     name = 'split_pane',
+    --     one_shot = true,
+    --   }
+    -- },
+    -- {
+    --   key = 'Enter',
+    --   mods = 'CTRL|SHIFT',
+    --   action = act.ActivateKeyTable {
+    --     name = 'split_pane',
+    --     one_shot = true,
+    --   }
+    -- },
     -- Show debug overlay
     { key = 'D', mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
     -- Close current pane
@@ -50,25 +50,25 @@ function keymaps.apply_to_config(config)
       action = act.CloseCurrentPane { confirm = true }
     },
     -- Resize pane
-    {
-      key = 'r',
-      mods = 'CTRL|SHIFT',
-      action = act.ActivateKeyTable {
-        name = 'resize_pane',
-        one_shot = false,
-      }
-    },
+    -- {
+    --   key = 'r',
+    --   mods = 'CTRL|SHIFT',
+    --   action = act.ActivateKeyTable {
+    --     name = 'resize_pane',
+    --     one_shot = false,
+    --   }
+    -- },
     -- Navigate previous and next pane
-    {
-      key = 'h',
-      mods = 'CTRL|SHIFT',
-      action = act.ActivatePaneDirection 'Prev'
-    },
-    {
-      key = 'l',
-      mods = 'CTRL|SHIFT',
-      action = act.ActivatePaneDirection 'Next'
-    },
+    -- {
+    --   key = 'h',
+    --   mods = 'CTRL|SHIFT',
+    --   action = act.ActivatePaneDirection 'Prev'
+    -- },
+    -- {
+    --   key = 'l',
+    --   mods = 'CTRL|SHIFT',
+    --   action = act.ActivatePaneDirection 'Next'
+    -- },
     -- Copy to clipboard
     { key = 'c', mods = 'SUPER', action = act.CopyTo 'Clipboard', },
     -- Paste from clipboard
@@ -76,13 +76,13 @@ function keymaps.apply_to_config(config)
     -- Show launcher menu
     { key = 'l', mods = 'LEADER', action = wezterm.action.ShowLauncher },
     -- Show workspace launcher
-    {
-      key = 'p',
-      mods = 'CTRL|SHIFT',
-      action = act.ShowLauncherArgs {
-        flags = 'FUZZY|WORKSPACES',
-      },
-    },
+    -- {
+    --   key = 'p',
+    --   mods = 'CTRL|SHIFT',
+    --   action = act.ShowLauncherArgs {
+    --     flags = 'FUZZY|WORKSPACES',
+    --   },
+    -- },
   }
 
   config.key_tables = {

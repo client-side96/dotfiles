@@ -13,17 +13,17 @@ function status.apply_to_config(window, pane)
   if key_table_name then
     return window:set_right_status(
       wezterm.format{
-        {Foreground={Color=colors_config.red_light}},
-        {Background={Color=colors_config.background_1}},
+        {Foreground={Color=colors_config.red}},
+        {Background={Color=colors_config.base}},
         {Text=(key_table_name or '')}
       }
     )
   end
   if workspace_name then
-    local bg_color = string.find(workspace_name, 'ssh') and colors_config.red or colors_config.light_aqua
+    local bg_color = string.find(workspace_name, 'ssh') and colors_config.red or colors_config.magenta
     return window:set_right_status(
       wezterm.format{
-        {Foreground={Color=colors_config.background_hard}},
+        {Foreground={Color=colors_config.base}},
         {Background={Color=bg_color}},
         {Text=(workspace_name or '')}
       }
