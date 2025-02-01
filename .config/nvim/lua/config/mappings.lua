@@ -1,7 +1,5 @@
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<leader>n", vim.cmd.Ex)
-
 vim.keymap.set("n", "<leader>wv", vim.cmd.vsplit)
 
 vim.keymap.set("n", ",", vim.cmd.noh)

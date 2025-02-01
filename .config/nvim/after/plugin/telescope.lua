@@ -24,11 +24,25 @@ telescope.setup({
 		diagnostics = {
 			theme = "ivy",
 		},
+		jumplist = {
+			theme = "dropdown",
+		},
+	},
+	extensions = {
+		file_browser = {
+			theme = "ivy",
+			hijack_netrw = true,
+			initial_mode = "normal",
+			respect_gitignore = true,
+		},
 	},
 })
 
+telescope.load_extension("file_browser")
+
 vim.keymap.set("n", "<leader>f", builtin.find_files)
 vim.keymap.set("n", "<leader>'", builtin.resume)
+vim.keymap.set("n", "<leader>j", builtin.jumplist)
 vim.keymap.set("n", "<leader>/", function()
 	builtin.live_grep()
 end)
@@ -37,3 +51,7 @@ vim.keymap.set("n", "gr", builtin.lsp_references)
 vim.keymap.set("n", "<leader>s", builtin.lsp_document_symbols)
 vim.keymap.set("n", "<leader>S", builtin.lsp_workspace_symbols)
 vim.keymap.set("n", "<leader>d", builtin.diagnostics)
+
+vim.keymap.set("n", "<leader>n", function()
+	telescope.extensions.file_browser.file_browser()
+end)
