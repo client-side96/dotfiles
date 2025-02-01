@@ -1,7 +1,6 @@
 local wezterm = require 'wezterm'
 
 local fonts = require 'modules.fonts'
-local colors = require 'modules.colors'
 
 local window = {}
 
@@ -10,16 +9,14 @@ function window.apply_to_config(config)
   config.window_decorations = "RESIZE"
 
   -- Native tab bar
-  config.enable_tab_bar = false
-  config.use_fancy_tab_bar = true
+  config.enable_tab_bar = true
+  config.use_fancy_tab_bar = true 
   config.window_frame = {
     font = wezterm.font {
       family = fonts.default,
       weight = "Medium"
     },
-    font_size = 11,
-    -- active_titlebar_bg = colors.base,
-    -- inactive_titlebar_bg = colors.overlay,
+    font_size = 12,
   }
 
 
