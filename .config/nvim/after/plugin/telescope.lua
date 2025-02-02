@@ -35,10 +35,20 @@ telescope.setup({
 			initial_mode = "normal",
 			respect_gitignore = true,
 		},
+		["ui-select"] = {
+			theme = "dropdown",
+			previewer = false,
+			initial_mode = "normal",
+			layout_config = {
+				width = 0.3,
+				height = 0.3,
+			},
+		},
 	},
 })
 
 telescope.load_extension("file_browser")
+telescope.load_extension("ui-select")
 
 vim.keymap.set("n", "<leader>f", builtin.find_files)
 vim.keymap.set("n", "<leader>'", builtin.resume)

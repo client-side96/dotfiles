@@ -8,6 +8,8 @@ configs.setup({
 		"tsx",
 		"markdown",
 		"json",
+		"css",
+		"yaml",
 	},
 	sync_install = false,
 	highlight = { enable = true },

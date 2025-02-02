@@ -84,6 +84,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.prettier,
 		require("none-ls.diagnostics.eslint"),
+		require("none-ls.code_actions.eslint"),
 	},
 	on_attach = on_attach,
 })
