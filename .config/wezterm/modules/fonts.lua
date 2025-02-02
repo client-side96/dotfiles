@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 
 local fonts = {
 	default = "Monaspace Argon",
-	italic = "Monaspace Radon",
+	italic = "Monaspace Argon",
 }
 
 function fonts.apply_to_config(config)
@@ -10,7 +10,7 @@ function fonts.apply_to_config(config)
 	config.line_height = 1.2
 	config.font = wezterm.font({
 		family = fonts.default,
-		weight = "DemiBold",
+		weight = "Medium",
 		harfbuzz_features = {
 			"ss01",
 			"ss02",
@@ -33,6 +33,7 @@ function fonts.apply_to_config(config)
 			font = wezterm.font({
 				family = fonts.italic,
 				italic = true,
+				weight = "Medium",
 				harfbuzz_features = {
 					"ss01",
 					"ss02",
