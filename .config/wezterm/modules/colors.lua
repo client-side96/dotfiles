@@ -1,24 +1,48 @@
 local colors = {
-	base = "#faf4ed",
-	surface = "#fffaf3",
-	overlay = "#f2e9e1",
-	muted = "#9893a5",
-	subtle = "#797593",
-	text = "#575279",
-	red = "#b4637a",
-	yellow = "#ea9d34",
-	rose = "#d7827e",
-	green = "#286983",
-	blue = "#56949f",
-	magenta = "#907aa9",
-	highlight_low = "#f4ede8",
-	highlight_med = "#dfdad9",
-	highlight_high = "#cecacd",
-	white = "#ffffff",
+	crust = "#11111b",
+	mantle = "#181825",
+	base = "#1e1e2e",
+	text = "#cdd6f4",
+	subtext_0 = "#a6adc8",
+	surface_0 = "#313244",
+	mauve = "#cba6f7",
+	red = "#f38ba8",
+	teal = "#94e2d5",
+	blue = "#89b4fa",
 }
 
 function colors.apply_to_config(config)
-	config.color_scheme = "Github Dark (Gogh)"
+	config.color_scheme = "Catppuccin Mocha (Gogh)"
+	config.colors = {
+		tab_bar = {
+			background = colors.base,
+			active_tab = {
+				bg_color = colors.base,
+				fg_color = colors.text,
+				intensity = "Bold",
+			},
+			inactive_tab = {
+				bg_color = colors.surface_0,
+				fg_color = colors.subtext_0,
+				intensity = "Normal",
+			},
+			inactive_tab_hover = {
+				bg_color = colors.base,
+				fg_color = colors.text,
+				intensity = "Bold",
+			},
+			new_tab = {
+				bg_color = colors.surface_0,
+				fg_color = colors.subtext_0,
+				intensity = "Normal",
+			},
+			new_tab_hover = {
+				bg_color = colors.base,
+				fg_color = colors.text,
+				intensity = "Bold",
+			},
+		},
+	}
 end
 
 return colors
