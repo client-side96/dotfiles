@@ -40,7 +40,6 @@ telescope.setup({
 			previewer = false,
 			initial_mode = "normal",
 			layout_config = {
-				width = 0.3,
 				height = 0.3,
 			},
 		},
