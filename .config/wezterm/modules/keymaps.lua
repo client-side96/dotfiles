@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
 local act = wezterm.action
 
 local keymaps = {}
@@ -79,9 +80,7 @@ function keymaps.apply_to_config(config)
 		{
 			key = "p",
 			mods = "CTRL|SHIFT",
-			action = act.ShowLauncherArgs({
-				flags = "FUZZY|WORKSPACES",
-			}),
+			action = workspace_switcher.switch_workspace(),
 		},
 	}
 
