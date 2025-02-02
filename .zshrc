@@ -16,9 +16,10 @@ antigen apply
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
-alias ls='exa --icons'
+alias ls='eza --icons'
 alias ll='ls -l -g'
 alias dot='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias v='nvim'
 
 alias lzg='lazygit'
 alias lzd='lazydocker'
@@ -28,7 +29,8 @@ alias lzd='lazydocker'
 [[ -f /Users/mvst/.dart-cli-completion/zsh-config.zsh ]] && . /Users/mvst/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
-eval "$(pyenv init -)"
-eval "$(rbenv init - zsh)"
 eval "$(starship init zsh)"
 
+
+# Added by Windsurf
+export PATH="/Users/frey_do/.codeium/windsurf/bin:$PATH"
