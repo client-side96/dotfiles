@@ -15,7 +15,7 @@ local tailwind_tools = require("tailwind-tools")
 mason.setup()
 
 mason_lspconfig.setup({
-	ensure_installed = { "lua_ls", "ts_ls", "tailwindcss" },
+	ensure_installed = { "lua_ls", "ts_ls", "tailwindcss", "denols" },
 })
 
 mason_null_ls.setup({
@@ -24,18 +24,6 @@ mason_null_ls.setup({
 
 lspconfig_defaults.capabilities =
 	vim.tbl_deep_extend("force", lspconfig_defaults.capabilities, cmp_nvim_lsp.default_capabilities())
-
-local formatting_augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
-local lsp_formatting = function(bufnr)
-	vim.lsp.buf.format({
-		filter = function(client)
-			return client.name == "null-ls"
-		end,
-		bufnr = bufnr,
-		async = false,
-	})
-end
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
@@ -61,14 +49,29 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-local on_attach = function(client, bufnr)
+local formatting_augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+local on_attach = function(client, bufnr, should_use_lsp)
 	if client.supports_method("textDocument/formatting") then
 		vim.api.nvim_clear_autocmds({ group = formatting_augroup, buffer = bufnr })
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			group = formatting_augroup,
 			buffer = bufnr,
 			callback = function()
-				lsp_formatting(bufnr)
+				-- NOTE: Use `null-ls` for formatting as the default
+				should_use_lsp = should_use_lsp or false
+
+				if should_use_lsp then
+					vim.lsp.buf.format({ bufnr = bufnr, async = false })
+				else
+					vim.lsp.buf.format({
+						filter = function(formatting_client)
+							return formatting_client.name == "null-ls"
+						end,
+						bufnr = bufnr,
+						async = false,
+					})
+				end
 			end,
 		})
 	end
@@ -78,8 +81,19 @@ lspconfig.lua_ls.setup({
 	on_attach = on_attach,
 })
 
+local typescript_root_patterns = { "package.json" }
 lspconfig.ts_ls.setup({
 	on_attach = on_attach,
+	root_dir = lspconfig.util.root_pattern(typescript_root_patterns),
+	single_file_support = false,
+})
+
+local deno_root_patterns = { "deno.json", "deno.jsonc" }
+lspconfig.denols.setup({
+	on_attach = function(client, bufnr)
+		on_attach(client, bufnr, true)
+	end,
+	root_dir = lspconfig.util.root_pattern(deno_root_patterns),
 })
 
 lspconfig.tailwindcss.setup({
@@ -89,9 +103,21 @@ lspconfig.tailwindcss.setup({
 null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.formatting.prettier,
-		require("none-ls.diagnostics.eslint"),
-		require("none-ls.code_actions.eslint"),
+		null_ls.builtins.formatting.prettier.with({
+			condition = function(u)
+				return not u.root_has_file(deno_root_patterns) and u.root_has_file(typescript_root_patterns)
+			end,
+		}),
+		require("none-ls.diagnostics.eslint").with({
+			condition = function(u)
+				return not u.root_has_file(deno_root_patterns) and u.root_has_file(typescript_root_patterns)
+			end,
+		}),
+		require("none-ls.code_actions.eslint").with({
+			condition = function(u)
+				return not u.root_has_file(deno_root_patterns) and u.root_has_file(typescript_root_patterns)
+			end,
+		}),
 	},
 	on_attach = on_attach,
 })
