@@ -15,11 +15,11 @@ local tailwind_tools = require("tailwind-tools")
 mason.setup()
 
 mason_lspconfig.setup({
-	ensure_installed = { "lua_ls", "ts_ls", "tailwindcss", "denols" },
+	ensure_installed = { "lua_ls", "ts_ls", "tailwindcss", "denols", "eslint" },
 })
 
 mason_null_ls.setup({
-	ensure_installed = { "stylua", "prettier", "eslint" },
+	ensure_installed = { "stylua", "prettier" },
 })
 
 lspconfig_defaults.capabilities =
@@ -88,6 +88,10 @@ lspconfig.ts_ls.setup({
 	single_file_support = false,
 })
 
+lspconfig.eslint.setup({
+	on_attach = on_attach,
+})
+
 local deno_root_patterns = { "deno.json", "deno.jsonc" }
 lspconfig.denols.setup({
 	on_attach = function(client, bufnr)
@@ -104,16 +108,6 @@ null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.prettier.with({
-			condition = function(u)
-				return not u.root_has_file(deno_root_patterns) and u.root_has_file(typescript_root_patterns)
-			end,
-		}),
-		require("none-ls.diagnostics.eslint").with({
-			condition = function(u)
-				return not u.root_has_file(deno_root_patterns) and u.root_has_file(typescript_root_patterns)
-			end,
-		}),
-		require("none-ls.code_actions.eslint").with({
 			condition = function(u)
 				return not u.root_has_file(deno_root_patterns) and u.root_has_file(typescript_root_patterns)
 			end,

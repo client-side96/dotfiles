@@ -14,6 +14,12 @@ local status_config = require("modules.status")
 
 workspace_switcher.zoxide_path = "/opt/homebrew/bin/zoxide"
 workspace_switcher.apply_to_config(config)
+workspace_switcher.workspace_formatter = function(label)
+	local display_label = label:match(".*[/\\](.*)") or label
+	return wezterm.format({
+		{ Text = "󱂬: " .. display_label },
+	})
+end
 
 -- Color configuration
 colors_config.apply_to_config(config)
