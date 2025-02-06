@@ -1,33 +1,26 @@
 local devicons = require("nvim-web-devicons")
+local colors = require("core.colors")
 
 local statusline = {}
 
-local surface_0 = "#313244"
-local blue = "#89b4fa"
-local peach = "#fab387"
-local mauve = "#cba6f7"
-local teal = "#94e2d5"
-
-local mode_map = {
-	n = " N ",
-	i = " I ",
-	v = " V ",
-	c = " C ",
-}
-
-local mode_color_map = {
-	n = "%#StatusNormalBg#",
-	i = "%#StatusInsertBg#",
-	v = "%#StatusVisualBg#",
-	c = "%#StatusCommandBg#",
-}
-
 local function get_mode(mode)
+	local mode_map = {
+		n = " N ",
+		i = " I ",
+		v = " V ",
+		c = " C ",
+	}
 	return mode_map[mode] or " OTHER "
 end
 
 local function get_mode_color(mode)
-	return mode_color_map[mode] or "%#StatusNormalBg#"
+	local mode_color_map = {
+		n = "%#StatusLineNormal#",
+		i = "%#StatusLineInsert#",
+		v = "%#StatusLineVisual#",
+		c = "%#StatusLineCommand#",
+	}
+	return mode_color_map[mode] or "%#StatusLineNormal#"
 end
 
 local function get_branch()
@@ -40,20 +33,11 @@ local function get_branch()
 	end
 end
 
-local function get_icon(filename, extension)
-	local icon = devicons.get_icon(filename, extension)
-	if icon then
-		return icon
-	else
-		return ""
-	end
-end
-
 function statusline.setup()
-	vim.api.nvim_set_hl(0, "StatusNormalBg", { bg = surface_0, fg = blue })
-	vim.api.nvim_set_hl(0, "StatusInsertBg", { bg = surface_0, fg = peach })
-	vim.api.nvim_set_hl(0, "StatusVisualBg", { bg = surface_0, fg = mauve })
-	vim.api.nvim_set_hl(0, "StatusCommandBg", { bg = surface_0, fg = teal })
+	vim.api.nvim_set_hl(0, "StatusLineNormal", { bg = colors.subtle_bg, fg = colors.blue })
+	vim.api.nvim_set_hl(0, "StatusLineInsert", { bg = colors.subtle_bg, fg = colors.yellow })
+	vim.api.nvim_set_hl(0, "StatusLineVisual", { bg = colors.subtle_bg, fg = colors.purple })
+	vim.api.nvim_set_hl(0, "StatusLineCommand", { bg = colors.subtle_bg, fg = colors.cyan })
 
 	local filename = vim.fn.expand("%:t")
 	local extension = vim.fn.expand("%:e")
@@ -64,16 +48,15 @@ function statusline.setup()
 		get_mode_color(mode),
 		get_mode(mode),
 		get_branch(),
-		"%#StatusLine#",
+		"%#StatusLine:StatusLineNC#",
 		space,
 		"%=",
 		filename,
 		"%=",
 		get_mode_color(mode),
 		space,
-		get_icon(filename, extension),
+		devicons.get_icon(filename, extension) or "",
 		space,
-		extension,
 		space,
 	})
 end
