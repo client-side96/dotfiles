@@ -1,4 +1,4 @@
-require("config.mappings")
-require("config.lazy")
-require("config.options")
-require("config.window_management")
+require("client-side.mappings")
+require("client-side.lazy")
+require("client-side.options")
+require("client-side.window_management")
