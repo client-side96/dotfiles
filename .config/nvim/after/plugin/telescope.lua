@@ -6,12 +6,16 @@ telescope.setup({
 		find_files = {
 			theme = "dropdown",
 			previewer = false,
+			path_display = { "smart" },
+			sorter = require("telescope.sorters").fuzzy_with_index_bias(),
 		},
 		live_grep = {
 			theme = "ivy",
+			path_display = { "smart" },
 		},
 		lsp_references = {
 			theme = "ivy",
+			path_display = { "tail" },
 		},
 		lsp_document_symbols = {
 			theme = "dropdown",
@@ -20,12 +24,15 @@ telescope.setup({
 		lsp_workspace_symbols = {
 			theme = "dropdown",
 			previewer = false,
+			path_display = { "tail" },
 		},
 		diagnostics = {
 			theme = "ivy",
+			path_display = { "tail" },
 		},
 		jumplist = {
 			theme = "dropdown",
+			path_display = { "tail" },
 		},
 	},
 	extensions = {
