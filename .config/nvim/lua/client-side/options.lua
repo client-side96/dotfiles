@@ -5,6 +5,9 @@ vim.opt.cursorcolumn = true
 vim.opt.colorcolumn = { "80", "100", "120" }
 vim.opt.signcolumn = "yes"
 
+vim.opt.list = true
+vim.opt.lcs = "space:·"
+
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true

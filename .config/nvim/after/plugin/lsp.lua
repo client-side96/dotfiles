@@ -15,7 +15,15 @@ local tailwind_tools = require("tailwind-tools")
 mason.setup()
 
 mason_lspconfig.setup({
-	ensure_installed = { "lua_ls", "ts_ls", "tailwindcss", "denols", "eslint" },
+	ensure_installed = {
+		"lua_ls",
+		"ts_ls",
+		"tailwindcss",
+		"denols",
+		"eslint",
+		"gopls",
+		"rust_analyzer",
+	},
 })
 
 mason_null_ls.setup({
@@ -98,6 +106,18 @@ lspconfig.denols.setup({
 		on_attach(client, bufnr, true)
 	end,
 	root_dir = lspconfig.util.root_pattern(deno_root_patterns),
+})
+
+lspconfig.gopls.setup({
+	on_attach = function(client, bufnr)
+		on_attach(client, bufnr, true)
+	end,
+})
+
+lspconfig.rust_analyzer.setup({
+	on_attach = function(client, bufnr)
+		on_attach(client, bufnr, true)
+	end,
 })
 
 lspconfig.tailwindcss.setup({
