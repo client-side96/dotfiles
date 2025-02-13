@@ -1,5 +1,5 @@
 local devicons = require("nvim-web-devicons")
-local colors = require("core.colors")
+local colors = require("client-side.colors")
 
 local statusline = {}
 
