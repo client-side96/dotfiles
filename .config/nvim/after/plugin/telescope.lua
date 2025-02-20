@@ -48,6 +48,7 @@ telescope.setup({
 })
 
 vim.keymap.set("n", "<leader>f", builtin.find_files)
+vim.keymap.set("n", "<leader>b", builtin.buffers)
 vim.keymap.set("n", "<leader>'", builtin.resume)
 vim.keymap.set("n", "<leader>j", builtin.jumplist)
 vim.keymap.set("n", "<leader>/", function()

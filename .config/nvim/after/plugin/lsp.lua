@@ -23,6 +23,7 @@ mason_lspconfig.setup({
 		"eslint",
 		"gopls",
 		"rust_analyzer",
+		"prismals",
 	},
 })
 
@@ -89,11 +90,21 @@ lspconfig.lua_ls.setup({
 	on_attach = on_attach,
 })
 
+lspconfig.prismals.setup({
+	on_attach = on_attach,
+})
+
 local typescript_root_patterns = { "package.json" }
-lspconfig.ts_ls.setup({
+require("typescript-tools").setup({
 	on_attach = on_attach,
 	root_dir = lspconfig.util.root_pattern(typescript_root_patterns),
 	single_file_support = false,
+	settings = {
+		complete_function_calls = true,
+		jsx_close_tag = {
+			enable = true,
+		},
+	},
 })
 
 lspconfig.eslint.setup({
