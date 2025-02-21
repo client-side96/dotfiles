@@ -10,6 +10,7 @@ configs.setup({
 		"json",
 		"css",
 		"yaml",
+		"dart",
 	},
 	sync_install = false,
 	highlight = { enable = true },

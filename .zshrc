@@ -30,6 +30,8 @@ alias lzd='lazydocker'
 ## [/Completion]
 
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+eval "$(rbenv init - --no-rehash bash)"
 
 
 # Added by Windsurf

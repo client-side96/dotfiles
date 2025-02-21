@@ -21,7 +21,6 @@ mason_lspconfig.setup({
 		"tailwindcss",
 		"denols",
 		"eslint",
-		"gopls",
 		"rust_analyzer",
 		"prismals",
 	},
@@ -91,6 +90,10 @@ lspconfig.lua_ls.setup({
 })
 
 lspconfig.prismals.setup({
+	on_attach = on_attach,
+})
+
+lspconfig.dartls.setup({
 	on_attach = on_attach,
 })
 
