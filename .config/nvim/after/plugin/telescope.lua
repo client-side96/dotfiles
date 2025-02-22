@@ -54,6 +54,7 @@ vim.keymap.set("n", "<leader>j", builtin.jumplist)
 vim.keymap.set("n", "<leader>/", function()
 	builtin.live_grep()
 end)
+vim.keymap.set("n", "<leader>hh", builtin.help_tags)
 
 vim.keymap.set("n", "gr", builtin.lsp_references)
 vim.keymap.set("n", "<leader>s", builtin.lsp_document_symbols)

@@ -100,7 +100,6 @@ require("typescript-tools").setup({
 	root_dir = lspconfig.util.root_pattern(typescript_root_patterns),
 	single_file_support = false,
 	settings = {
-		complete_function_calls = true,
 		jsx_close_tag = {
 			enable = true,
 		},
