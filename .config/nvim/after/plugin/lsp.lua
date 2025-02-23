@@ -9,6 +9,8 @@ local mason_null_ls = require("mason-null-ls")
 
 local cmp = require("cmp")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local lspkind = require("lspkind")
+local copilot_cmp = require("copilot_cmp")
 
 local tailwind_tools = require("tailwind-tools")
 
@@ -24,6 +26,7 @@ mason_lspconfig.setup({
 		"gopls",
 		"rust_analyzer",
 		"prismals",
+		"zls",
 	},
 })
 
@@ -90,6 +93,10 @@ lspconfig.lua_ls.setup({
 	on_attach = on_attach,
 })
 
+lspconfig.zls.setup({
+	on_attach = on_attach,
+})
+
 lspconfig.prismals.setup({
 	on_attach = on_attach,
 })
@@ -152,9 +159,11 @@ tailwind_tools.setup({
 	},
 })
 
+copilot_cmp.setup()
 cmp.setup({
 	sources = {
-		{ name = "nvim_lsp" },
+		{ name = "copilot", group_index = 2 },
+		{ name = "nvim_lsp", group_index = 2 },
 	},
 	mapping = {
 		["<C-e>"] = cmp.mapping.close(),
@@ -176,5 +185,21 @@ cmp.setup({
 				fallback()
 			end
 		end, { "i", "s" }),
+	},
+	formatting = {
+		format = lspkind.cmp_format({
+			mode = "symbol",
+			maxwidth = {
+				menu = 50,
+				abbr = 50,
+			},
+			symbol_map = { Copilot = "" },
+			ellipsis_char = "...",
+			show_labelDetails = true,
+
+			before = function(entry, vim_item)
+				return vim_item
+			end,
+		}),
 	},
 })
