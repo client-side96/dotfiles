@@ -1,7 +1,9 @@
 local gitsigns = require("gitsigns")
 local Terminal = require("toggleterm.terminal").Terminal
 
-gitsigns.setup()
+gitsigns.setup({
+	current_line_blame = true,
+})
 
 local lazygit_cmd = Terminal:new({
 	cmd = "lazygit",
