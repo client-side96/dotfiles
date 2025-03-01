@@ -21,5 +21,3 @@ vim.opt.updatetime = 50
 
 vim.opt.wrap = false
 vim.opt.showmode = false
-
-vim.opt.statusline = "%{%v:lua.require('client-side.statusline').setup()%}"

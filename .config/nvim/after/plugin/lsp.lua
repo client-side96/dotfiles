@@ -9,7 +9,6 @@ local mason_null_ls = require("mason-null-ls")
 
 local cmp = require("cmp")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
 local lspkind = require("lspkind")
 local copilot_cmp = require("copilot_cmp")
 
