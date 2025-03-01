@@ -21,3 +21,5 @@ vim.opt.updatetime = 50
 
 vim.opt.wrap = false
 vim.opt.showmode = false
+
+vim.cmd.colorscheme("catppuccin")
