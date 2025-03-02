@@ -15,4 +15,7 @@ require("lualine").setup({
 		lualine_b = { "filename" },
 		lualine_y = { "filetype" },
 	},
+	inactive_winbar = {
+		lualine_c = { "filename" },
+	},
 })
