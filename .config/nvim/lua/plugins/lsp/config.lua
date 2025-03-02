@@ -27,7 +27,8 @@ require("null-ls").setup({
 		require("null-ls").builtins.formatting.stylua,
 		require("null-ls").builtins.formatting.prettier.with({
 			condition = function(u)
-				return not u.root_has_file(servers.deno.root_patterns) and u.root_has_file(servers.typescript_patterns)
+				return not u.root_has_file(servers.deno.root_patterns)
+					and u.root_has_file(servers.typescript.root_patterns)
 			end,
 		}),
 	},
