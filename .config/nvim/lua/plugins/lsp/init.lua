@@ -13,6 +13,7 @@ return {
 		"onsails/lspkind.nvim",
 		"luckasRanarison/tailwind-tools.nvim",
 		"pmizio/typescript-tools.nvim",
+		"nvim-flutter/flutter-tools.nvim",
 	},
 	config = function()
 		require("plugins.lsp.config")

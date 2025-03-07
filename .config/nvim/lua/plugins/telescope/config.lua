@@ -1,10 +1,13 @@
 require("telescope").setup({
+	defaults = {
+		file_ignore_patterns = { ".git/", "node_modules/", ".idea", ".vscode", ".run" },
+	},
 	pickers = {
 		find_files = {
 			theme = "dropdown",
 			previewer = false,
-			sorter = require("telescope.sorters").fuzzy_with_index_bias(),
 			path_display = { "smart" },
+			hidden = true,
 		},
 		buffers = {
 			theme = "dropdown",

@@ -1,5 +1,6 @@
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
+		"dart",
 		"lua",
 		"javascript",
 		"typescript",
@@ -8,6 +9,7 @@ require("nvim-treesitter.configs").setup({
 		"json",
 		"css",
 		"yaml",
+		"dart",
 	},
 	sync_install = false,
 	highlight = { enable = true },

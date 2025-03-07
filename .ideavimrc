@@ -1,25 +1,60 @@
 let mapleader = " "
 
+
+
 set visualbell
 set NERDTree
 
+
+
 nmap <leader>f :action GotoFile<CR>
+vmap <leader>f :action GotoFile<CR>
+
 nmap <leader>/ :action FindInPath<CR>
+vmap <leader>/ :action FindInPath<CR>
+
 nmap <leader>S :action GotoSymbol<CR>
+vmap <leader>S :action GotoSymbol<CR>
+
 nmap <leader>r :action RenameElement<CR>
+vmap <leader>r :action RenameElement<CR>
+
 nmap <leader>k :action ShowHoverInfo<CR>
+vmap <leader>k :action ShowHoverInfo<CR>
+
+nmap <leader>a :action ShowIntentionActions<CR>
+vmap <leader>a :action ShowIntentionActions<CR>
+
 nmap <leader>wv :action SplitVertically<CR>
+vmap <leader>wv :action SplitVertically<CR>
+
+
 
 nmap gr :action ShowUsages<CR>
-nmap [d :action GotoPreviousError<CR>
-nmap ]d :action GotoNextError<CR>
+vmap gr :action ShowUsages<CR>
 
-nnoremap < <<
-nnoremap > >>
+nmap gi :action GotoImplementation<CR>
+vmap gi :action GotoImplementation<CR>
+
+nmap [d :action GotoPreviousError<CR>
+vmap [d :action GotoPreviousError<CR>
+
+nmap ]d :action GotoNextError<CR>
+vmap ]d :action GotoNextError<CR>
+
+
 
 nnoremap gs ^
-nnoremap gl $
-nnoremap ge G
+vnoremap gs ^
 
+nnoremap gl $
+vnoremap gl $
+
+nnoremap ge G
+vnoremap ge G
+
+nnoremap < <<
 vnoremap < <gv
+
+nnoremap > >>
 vnoremap > >gv

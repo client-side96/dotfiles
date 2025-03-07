@@ -6,7 +6,7 @@ local fonts = {
 }
 
 function fonts.apply_to_config(config)
-	config.font_size = 14
+	config.font_size = 15
 	config.line_height = 1.2
 	config.font = wezterm.font({
 		family = fonts.default,

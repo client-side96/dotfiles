@@ -7,7 +7,6 @@ require("mason-lspconfig").setup({
 		"tailwindcss",
 		"denols",
 		"eslint",
-		"gopls",
 		"rust_analyzer",
 		"prismals",
 		"zls",

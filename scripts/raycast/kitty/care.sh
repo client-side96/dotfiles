@@ -7,7 +7,7 @@
 
 # Optional parameters:
 # @raycast.icon 🧬
-# @raycast.packageName Kitty
+# @raycast.packageName CARE
 
 # Documentation:
 # @raycast.description Working Hours
@@ -16,8 +16,6 @@
 
 cd
 
-# kitty -o allow_remote_control=yes --session ~/.config/kitty/sessions/care-app
-open -a kitty.app -n --args --session ~/.config/kitty/sessions/care-app
-# open -a kitty.app -n
+wezterm start -- care
 
 echo "CARE project opened"
