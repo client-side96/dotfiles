@@ -52,8 +52,8 @@ function K.set_lsp(bufnr)
 	vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
 end
 
-function K.set_telescope(builtin)
-	vim.keymap.set("n", "<leader>f", builtin.find_files)
+function K.set_telescope(builtin, custom)
+	vim.keymap.set("n", "<leader>f", custom.project_files)
 	vim.keymap.set("n", "<leader>b", builtin.buffers)
 	vim.keymap.set("n", "<leader>'", builtin.resume)
 	vim.keymap.set("n", "<leader>j", builtin.jumplist)

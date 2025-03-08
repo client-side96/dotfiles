@@ -7,6 +7,7 @@ vim.opt.signcolumn = "yes"
 
 vim.opt.list = true
 vim.opt.listchars:append({ space = "·", tab = "  " })
+vim.opt.fillchars = { eob = "." }
 
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
@@ -22,4 +23,4 @@ vim.opt.updatetime = 50
 vim.opt.wrap = false
 vim.opt.showmode = false
 
-vim.cmd.colorscheme("kanagawa")
+vim.cmd.colorscheme("rose-pine")
