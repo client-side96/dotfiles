@@ -31,6 +31,11 @@ function completion.setup()
 				end
 			end, { "i", "s" }),
 		},
+		window = {
+			completion = {
+				side_padding = 0,
+			},
+		},
 		formatting = {
 			format = require("lspkind").cmp_format({
 				mode = "symbol",
@@ -40,7 +45,6 @@ function completion.setup()
 				},
 				symbol_map = { Copilot = "" },
 				ellipsis_char = "...",
-				show_labelDetails = true,
 
 				before = function(entry, vim_item)
 					return vim_item
