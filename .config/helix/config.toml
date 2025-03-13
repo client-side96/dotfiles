@@ -56,6 +56,15 @@ prefix-len = 3
 "C-A-l" = ":open ~/.config/helix/languages.toml" # Open helix configuration
 "C-A-c" = ":open ~/.config/helix/config.toml"    # Open helix language configuration
 
+[keys.insert]
+"A-u" = ':insert-output echo "ü"'
+"A-a" = ':insert-output echo "ä"'
+"A-s" = ':insert-output echo "ß"'
+"A-o" = ':insert-output echo "ö"'
+"A-U" = ':insert-output echo "Ü"'
+"A-A" = ':insert-output echo "Ä"'
+"A-O" = ':insert-output echo "Ö"'
+
 [keys.normal.space]
 n = [
   ':sh rm -f /tmp/unique-file',
@@ -64,3 +73,8 @@ n = [
   ':open %sh{cat /tmp/unique-file}',
   ':redraw',
 ]
+
+
+[keys.normal.space.g]
+c = "changed_file_picker"
+g = ':sh tmux display-popup -E -w 95%% -h 95%% "lazygit"'

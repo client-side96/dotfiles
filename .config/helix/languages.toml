@@ -2,6 +2,11 @@
 command = "copilot-language-server"
 args = ["--stdio"]
 
+[language-server.denols]
+command = "deno"
+args = ["lsp"]
+config = { "provideFormatter" = true }
+
 # Snippets language server
 [language-server.scls]
 command = "simple-completion-language-server"
@@ -40,6 +45,7 @@ auto-format = false
 name = "json"
 formatter = { command = 'prettier' }
 auto-format = false
+
 
 [[language]]
 name = "css"
