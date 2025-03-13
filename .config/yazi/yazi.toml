@@ -1,8 +1,4 @@
 [manager]
-ratio = [0, 8, 0]
+ratio = [0, 2, 6]
 show_hidden = true
 
-[opener]
-edit = [
-	{ run = '$HOME/scripts/helix_opener.sh "$@"', block = true },
-]

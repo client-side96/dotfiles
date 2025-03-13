@@ -1,4 +1,4 @@
-theme = "github_dark"
+theme = "rose_pine"
 
 [editor]
 line-number = "absolute"
@@ -55,3 +55,12 @@ prefix-len = 3
 [keys.normal]
 "C-A-l" = ":open ~/.config/helix/languages.toml" # Open helix configuration
 "C-A-c" = ":open ~/.config/helix/config.toml"    # Open helix language configuration
+
+[keys.normal.space]
+n = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+]
