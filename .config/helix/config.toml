@@ -57,13 +57,13 @@ prefix-len = 3
 "C-A-c" = ":open ~/.config/helix/config.toml"    # Open helix language configuration
 
 [keys.insert]
-"A-u" = ':insert-output echo "ü"'
-"A-a" = ':insert-output echo "ä"'
-"A-s" = ':insert-output echo "ß"'
-"A-o" = ':insert-output echo "ö"'
-"A-U" = ':insert-output echo "Ü"'
-"A-A" = ':insert-output echo "Ä"'
-"A-O" = ':insert-output echo "Ö"'
+"A-u" = [':insert-output echo "ü"', "extend_char_right"]
+"A-a" = [':insert-output echo "ä"', "extend_char_right"]
+"A-s" = [':insert-output echo "ß"', "extend_char_right"]
+"A-o" = [':insert-output echo "ö"', "extend_char_right"]
+"A-U" = [':insert-output echo "Ü"', "extend_char_right"]
+"A-A" = [':insert-output echo "Ä"', "extend_char_right"]
+"A-O" = [':insert-output echo "Ö"', "extend_char_right"]
 
 [keys.normal.space]
 n = [
@@ -78,3 +78,4 @@ n = [
 [keys.normal.space.g]
 c = "changed_file_picker"
 g = ':sh tmux display-popup -E -w 95%% -h 95%% "lazygit"'
+b = ':echo %sh{git blame -L %{cursor_line},%{cursor_line} %{buffer_name} | sed -n "s/^[^(]*(\([^)]*\)).*/\1/p"} '
