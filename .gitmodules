@@ -1,3 +1,0 @@
-[submodule "pkg/helix"]
-	path = pkg/helix
-	url = git@github.com:client-side96/helix.git

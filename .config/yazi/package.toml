@@ -1,7 +1,0 @@
-[plugin]
-deps = []
-
-[[flavor.deps]]
-use = "jamylak/rose-pine"
-rev = "df10f50"
-hash = "ba1044bd0ba76ba42395bb5136ad34bf"
