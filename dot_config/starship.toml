@@ -1,0 +1,10 @@
+format = '$character $directory'
+
+[character]
+success_symbol = '[➜](bold green)'
+error_symbol = '[➜](bold red)'
+
+[directory]
+home_symbol = ' '
+truncation_length = 1
+style = 'bold blue'
