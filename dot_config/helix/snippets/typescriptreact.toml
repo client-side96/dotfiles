@@ -1,0 +1,45 @@
+[[snippets]]
+prefix = "ppdebug"
+body = 'console.log("🪲🪲🪲 - $1", { $2 });'
+
+[[snippets]]
+prefix = "ppinfo"
+body = 'console.log("🔵🔵🔵 - $1", { $2 });'
+
+[[snippets]]
+prefix = "ppwarn"
+body = 'console.log("🟡🟡🟡 - $1", { $2 });'
+
+[[snippets]]
+prefix = "pperr"
+body = 'console.log("🔴🔴🔴 - $1", { $2 });'
+
+[[snippets]]
+prefix = "nxtp"
+body = '''
+interface Props {}
+
+export default async function $1Page ({}: Readonly<Props>) {
+  return <></>
+}
+'''
+
+[[snippets]]
+prefix = "rst"
+body = '''
+const [$1, set$1] = useState<$2>($3)
+'''
+
+[[snippets]]
+prefix = "rst"
+body = '''
+const [$1, set$1] = useState<$2>($3)
+'''
+
+[[snippets]]
+prefix = "twflex"
+body = '''
+<$1 className="flex items-center">
+  $2
+</$1>
+'''

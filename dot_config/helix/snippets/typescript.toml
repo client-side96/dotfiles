@@ -1,0 +1,18 @@
+[[snippets]]
+prefix = "clg"
+scope = ["typescript", "typescriptreact", "javascript", "javascriptreact"]
+body = 'console.log("🐛🐛🐛🐛🐛: ", "$1");'
+description = "Find the bug"
+
+[[snippets]]
+prefix = "comp"
+scope = ["typescriptreact", "javascriptreact"]
+body = '''
+interface Props {}
+
+export default function $1({}: Readonly<Props>) {
+  return <$2></$2>;
+}
+'''
+description = "React component with props"
+
