@@ -7,4 +7,5 @@ window-decoration = "none"
 window-padding-y = 0,0
 window-padding-balance = true
 window-padding-color = "extend"
+command = env XDG_CONFIG_HOME="$HOME/.config" /opt/homebrew/bin/nu
 
