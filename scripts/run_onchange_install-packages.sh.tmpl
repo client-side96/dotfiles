@@ -1,0 +1,13 @@
+#!/bin/bash
+
+{{ range .packages.npm -}}
+npm install -g {{ . | quote }}
+{{ end -}}
+
+{{ range .packages.cargo }}
+cargo install {{ . | quote }}
+{{ end -}}
+
+{{ range .packages.cargo_git }}
+cargo install --git {{ . | quote }}
+{{ end -}}

@@ -1,0 +1,10 @@
+packages:
+  npm:
+    - "typescript-language-server"
+    - "@tailwindcss/language-server"
+    - "vscode-langservers-extracted@4.8.0"
+    - "prettier"
+  cargo:
+    - "bottom"
+  cargo_git:
+    - "https://github.com/estin/simple-completion-language-server.git"
