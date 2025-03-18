@@ -1,8 +1,14 @@
 #!/opt/homebrew/bin/nu
 
 let helix_path = $nu.home-path | path join "pkg/helix" 
+let yazi_path = $nu.home-path | path join "pkg/yazi" 
 
 if ($helix_path | path join ".git" | path exists) {
   cd $helix_path
   git rev-parse HEAD out> {{ joinPath .chezmoi.sourceDir ".versions/.helix" | quote }}
+}
+
+if ($yazi_path | path join ".git" | path exists) {
+  cd $yazi_path
+  git rev-parse HEAD out> {{ joinPath .chezmoi.sourceDir ".versions/.yazi" | quote }}
 }

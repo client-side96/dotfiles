@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# yazi hash: {{ include ".versions/.yazi" | sha1sum }}
+cd $HOME/pkg/yazi
+
+cargo build --release --locked
+
+mv target/release/yazi target/release/ya ~/.cargo/bin
