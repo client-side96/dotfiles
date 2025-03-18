@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# helix hash: {{ include ".versions/.helix" | sha1sum }}
+cd $HOME/pkg/helix
+
+cargo install --path helix-term --locked
+
+hx --grammar fetch
+hx --grammar build

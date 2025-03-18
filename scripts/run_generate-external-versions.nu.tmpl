@@ -1,0 +1,8 @@
+#!/opt/homebrew/bin/nu
+
+let helix_path = $nu.home-path | path join "pkg/helix" 
+
+if ($helix_path | path join ".git" | path exists) {
+  cd $helix_path
+  git rev-parse HEAD out> {{ joinPath .chezmoi.sourceDir ".versions/.helix" | quote }}
+}

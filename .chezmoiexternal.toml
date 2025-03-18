@@ -1,0 +1,4 @@
+["pkg/helix"]
+    type = "git-repo"
+    url = "git@github.com:helix-editor/helix.git"
+    refreshPeriod = "24h"
