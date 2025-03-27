@@ -1,6 +1,6 @@
 . "$HOME/.cargo/env"
 
-export EDITOR='nvim'
+export EDITOR='hx'
 export HELIX_RUNTIME=$HOME/pkg/helix/runtime
 
 export GEM_HOME=$HOME/.gem
