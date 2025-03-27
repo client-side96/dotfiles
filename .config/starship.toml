@@ -1,4 +1,4 @@
-format = '$character $directory'
+format = '$character $git_branch $directory'
 
 [character]
 success_symbol = '[➜](bold green)'
@@ -8,3 +8,7 @@ error_symbol = '[➜](bold red)'
 home_symbol = ' '
 truncation_length = 1
 style = 'bold blue'
+
+[git_branch]
+symbol = ''
+format = '\([$symbol$branch(:$remote_branch)]($style)\) '

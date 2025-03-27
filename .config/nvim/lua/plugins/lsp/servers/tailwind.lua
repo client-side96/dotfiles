@@ -11,7 +11,7 @@ function tailwind.setup()
 
 	require("tailwind-tools").setup({
 		conceal = {
-			enabled = true,
+			enabled = false,
 		},
 	})
 end
