@@ -1,0 +1,32 @@
+CONFIG_DIR=$HOME/.config/sketchybar
+
+sketchybar --bar position=top height=20 color=0x191724
+
+default=(
+  padding_left=5
+  padding_right=5
+  icon.font="Cascadia Code:Bold:11.0"
+  label.font="Cascadia Code:Semibold:11.0"
+  icon.color=0xffffffff
+  label.color=0xffffffff
+  icon.padding_left=2
+  icon.padding_right=2
+  label.padding_left=2
+  label.padding_right=2
+  updates=on
+)
+
+sketchybar --default "${default[@]}"
+
+sketchybar --add event aerospace_workspace_change
+
+for sid in $(aerospace list-workspaces --monitor 1); do
+  sketchybar --add item space.$sid left \
+    --subscribe space.$sid aerospace_workspace_change \
+    --set space.$sid \
+    icon="$sid" \
+    script="$CONFIG_DIR/plugins/aerospace.sh $sid"
+done
+
+sketchybar --update
+
