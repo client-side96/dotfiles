@@ -7,7 +7,6 @@ return {
 		"jay-babu/mason-null-ls.nvim",
 		"nvimtools/none-ls.nvim",
 		"nvimtools/none-ls-extras.nvim",
-		"zbirenbaum/copilot-cmp",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/nvim-cmp",
 		"onsails/lspkind.nvim",

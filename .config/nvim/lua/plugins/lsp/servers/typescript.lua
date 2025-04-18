@@ -1,7 +1,7 @@
 local typescript = {
 	lsp_names = {}, -- Empty because we use typescript-tools
 	ts_names = { "typescript", "javascript", "tsx" },
-	root_patterns = { "package.json" },
+	root_patterns = { ".git", "package.json" },
 }
 
 function typescript.setup()

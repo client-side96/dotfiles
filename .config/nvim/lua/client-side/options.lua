@@ -23,4 +23,6 @@ vim.opt.updatetime = 50
 vim.opt.wrap = false
 vim.opt.showmode = false
 
+vim.opt.exrc = true
+
 vim.cmd.colorscheme("rose-pine")

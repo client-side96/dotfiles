@@ -3,11 +3,8 @@ local completion = {}
 function completion.setup()
 	local cmp = require("cmp")
 
-	require("copilot_cmp").setup()
-
 	cmp.setup({
 		sources = {
-			{ name = "copilot", group_index = 2 },
 			{ name = "nvim_lsp", group_index = 2 },
 		},
 		mapping = {
@@ -43,7 +40,6 @@ function completion.setup()
 					menu = 50,
 					abbr = 50,
 				},
-				symbol_map = { Copilot = "" },
 				ellipsis_char = "...",
 
 				before = function(entry, vim_item)
