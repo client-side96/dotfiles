@@ -1,6 +1,5 @@
 local servers = {
 	dart = require("plugins.lsp.servers.dart"),
-	deno = require("plugins.lsp.servers.deno"),
 	eslint = require("plugins.lsp.servers.eslint"),
 	go = require("plugins.lsp.servers.go"),
 	lua = require("plugins.lsp.servers.lua"),
