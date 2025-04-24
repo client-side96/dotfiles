@@ -23,11 +23,7 @@ servers.setup()
 require("null-ls").setup({
 	sources = {
 		require("null-ls").builtins.formatting.stylua,
-		require("null-ls").builtins.formatting.prettier.with({
-			condition = function(u)
-				return u.root_has_file(servers.typescript.root_patterns)
-			end,
-		}),
+		require("null-ls").builtins.formatting.prettier,
 	},
 	on_attach = require("plugins.lsp.servers.utils").on_attach,
 })

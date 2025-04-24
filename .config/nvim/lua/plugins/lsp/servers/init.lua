@@ -2,6 +2,7 @@ local servers = {
 	dart = require("plugins.lsp.servers.dart"),
 	eslint = require("plugins.lsp.servers.eslint"),
 	go = require("plugins.lsp.servers.go"),
+	html = require("plugins.lsp.servers.html"),
 	lua = require("plugins.lsp.servers.lua"),
 	prisma = require("plugins.lsp.servers.prisma"),
 	rust = require("plugins.lsp.servers.rust"),
@@ -15,7 +16,7 @@ local function enable_completion()
 	local lspconfig_defaults = require("lspconfig").util.default_config
 
 	lspconfig_defaults.capabilities =
-		vim.tbl_deep_extend("force", lspconfig_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
+		vim.tbl_deep_extend("force", lspconfig_defaults.capabilities, require("blink.cmp").get_lsp_capabilities())
 end
 
 local function register_keymaps()
