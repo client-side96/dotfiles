@@ -6,6 +6,8 @@ require("nvim-treesitter.configs").setup({
 		"typescript",
 		"tsx",
 		"markdown",
+		"html",
+		"gotmpl",
 		"json",
 		"css",
 		"yaml",
