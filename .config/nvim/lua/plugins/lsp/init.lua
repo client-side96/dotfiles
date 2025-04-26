@@ -7,7 +7,6 @@ return {
 		"jay-babu/mason-null-ls.nvim",
 		"nvimtools/none-ls.nvim",
 		"nvimtools/none-ls-extras.nvim",
-		"saghen/blink.cmp",
 		"luckasRanarison/tailwind-tools.nvim",
 		"pmizio/typescript-tools.nvim",
 		"nvim-flutter/flutter-tools.nvim",
