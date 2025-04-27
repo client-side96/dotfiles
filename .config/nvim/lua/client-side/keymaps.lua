@@ -66,10 +66,4 @@ function K.set_telescope(builtin, custom)
 	vim.keymap.set("n", "<leader>d", builtin.diagnostics)
 end
 
-function K.set_zen_mode()
-	vim.keymap.set("n", "<leader>z", function()
-		require("zen-mode").toggle()
-	end)
-end
-
 return K
