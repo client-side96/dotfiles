@@ -5,7 +5,8 @@ local go = {
 }
 
 function go.setup()
-	require("lspconfig").gopls.setup({
+	vim.lsp.enable("gopls")
+	vim.lsp.config("gopls", {
 		on_attach = function(client, bufnr)
 			require("plugins.lsp.servers.utils").on_attach(client, bufnr, true)
 		end,

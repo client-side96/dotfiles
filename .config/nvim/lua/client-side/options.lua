@@ -24,5 +24,6 @@ vim.opt.wrap = false
 vim.opt.showmode = false
 
 vim.opt.exrc = true
+vim.opt.wrap = true
 
 vim.cmd.colorscheme("rose-pine")

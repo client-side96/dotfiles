@@ -66,4 +66,6 @@ custom.project_files = function()
 	end
 end
 
-require("client-side.keymaps").set_telescope(require("telescope.builtin"), custom)
+require("telescope").load_extension("flutter")
+
+require("client-side.keymaps").set_telescope(require("telescope.builtin"), custom, require("telescope").extensions)

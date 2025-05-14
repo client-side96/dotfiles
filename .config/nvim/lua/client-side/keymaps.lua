@@ -52,7 +52,7 @@ function K.set_lsp(bufnr)
 	vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
 end
 
-function K.set_telescope(builtin, custom)
+function K.set_telescope(builtin, custom, extensions)
 	vim.keymap.set("n", "<leader>f", custom.project_files)
 	vim.keymap.set("n", "<leader>b", builtin.buffers)
 	vim.keymap.set("n", "<leader>'", builtin.resume)
@@ -64,6 +64,7 @@ function K.set_telescope(builtin, custom)
 	vim.keymap.set("n", "<leader>s", builtin.lsp_document_symbols)
 	vim.keymap.set("n", "<leader>S", builtin.lsp_workspace_symbols)
 	vim.keymap.set("n", "<leader>d", builtin.diagnostics)
+	vim.keymap.set("n", "<leader>D", extensions.flutter.commands)
 end
 
 return K

@@ -5,7 +5,8 @@ local zig = {
 }
 
 function zig.setup()
-	require("lspconfig").zls.setup({
+	vim.lsp.enable("zls")
+	vim.lsp.config("zls", {
 		on_attach = require("plugins.lsp.servers.utils").on_attach,
 	})
 end
