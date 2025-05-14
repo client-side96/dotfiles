@@ -1,0 +1,32 @@
+{
+  "name": "Neovim Configuration",
+  "version": "1.0.0",
+  "system_prompt": "You are an expert Neovim and Lua assistant helping with a Neovim configuration. The configuration aims to be minimal, avoiding plugins when functionality can be reasonably implemented directly in Lua.",
+  "vars": {
+    "root_dir": "."
+  },
+  "groups": [
+    {
+      "name": "Core Configuration",
+      "system_prompt": "This group contains the core Neovim configuration including options and keymaps.",
+      "data": ["options", "keymaps"]
+    }
+  ],
+  "data": {
+    "conventions": {
+      "type": "file",
+      "path": "${root_dir}/.ai/convention.md",
+      "description": "Markdown file that contains the conventions and guidelines for the Neovim configuration."
+    },
+    "options": {
+      "type": "file",
+      "path": "${root_dir}/lua/client-side/options.lua",
+      "description": "Neovim editor options and settings"
+    },
+    "keymaps": {
+      "type": "file",
+      "path": "${root_dir}/lua/client-side/keymaps.lua",
+      "description": "Custom keybindings and keyboard shortcuts"
+    }
+  }
+}

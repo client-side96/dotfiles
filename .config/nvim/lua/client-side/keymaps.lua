@@ -18,6 +18,11 @@ function K.set_oil()
 	vim.keymap.set("n", "<leader>n", ":Oil --float<cr>")
 end
 
+function K.set_codecompanion()
+	vim.keymap.set("n", "<leader>af", ":CodeCompanionActions<cr>")
+	vim.keymap.set("v", "<leader>aa", ":CodeCompanion /buffer ")
+end
+
 function K.set_toggleterm()
 	vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>lua Lazygit_toggle()<CR>", {
 		noremap = true,
