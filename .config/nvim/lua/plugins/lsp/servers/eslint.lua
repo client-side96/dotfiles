@@ -5,7 +5,8 @@ local eslint = {
 }
 
 function eslint.setup()
-	require("lspconfig").eslint.setup({
+	vim.lsp.enable("eslint")
+	vim.lsp.config("eslint", {
 		on_attach = require("plugins.lsp.servers.utils").on_attach,
 	})
 end

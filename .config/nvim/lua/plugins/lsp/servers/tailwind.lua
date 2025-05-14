@@ -5,7 +5,8 @@ local tailwind = {
 }
 
 function tailwind.setup()
-	require("lspconfig").tailwindcss.setup({
+	vim.lsp.enable("tailwindcss")
+	vim.lsp.config("tailwindcss", {
 		on_attach = require("plugins.lsp.servers.utils").on_attach,
 	})
 
