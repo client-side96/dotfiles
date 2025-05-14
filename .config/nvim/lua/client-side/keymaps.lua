@@ -67,10 +67,4 @@ function K.set_telescope(builtin, custom, extensions)
 	vim.keymap.set("n", "<leader>D", extensions.flutter.commands)
 end
 
-function K.set_zen_mode()
-	vim.keymap.set("n", "<leader>z", function()
-		require("zen-mode").toggle()
-	end)
-end
-
 return K

@@ -1,8 +1,9 @@
 local servers = {
+	biome = require("plugins.lsp.servers.biome"),
 	dart = require("plugins.lsp.servers.dart"),
 	eslint = require("plugins.lsp.servers.eslint"),
 	go = require("plugins.lsp.servers.go"),
-	-- html = require("plugins.lsp.servers.html"),
+	html = require("plugins.lsp.servers.html"),
 	lua = require("plugins.lsp.servers.lua"),
 	prisma = require("plugins.lsp.servers.prisma"),
 	rust = require("plugins.lsp.servers.rust"),

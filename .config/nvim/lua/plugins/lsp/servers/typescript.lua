@@ -6,7 +6,10 @@ local typescript = {
 
 function typescript.setup()
 	require("typescript-tools").setup({
-		on_attach = require("plugins.lsp.servers.utils").on_attach,
+		on_attach = function(client, bufnr)
+			require("plugins.lsp.servers.utils").on_attach(client, bufnr, false)
+			client.server_capabilities.documentFormattingProvider = false
+		end,
 		root_dir = require("lspconfig").util.root_pattern(typescript.root_patterns),
 		single_file_support = false,
 		settings = {

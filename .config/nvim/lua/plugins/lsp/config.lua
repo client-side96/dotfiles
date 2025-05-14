@@ -6,6 +6,7 @@ require("mason-lspconfig").setup({
 		"lua_ls",
 		"tailwindcss",
 		"eslint",
+		"biome",
 		"rust_analyzer",
 		"prismals",
 		"zls",
@@ -23,7 +24,17 @@ servers.setup()
 require("null-ls").setup({
 	sources = {
 		require("null-ls").builtins.formatting.stylua,
-		require("null-ls").builtins.formatting.prettier,
+		-- Disable prettier when biome config file is found
+		require("null-ls").builtins.formatting.prettier.with({
+			condition = function(utils)
+				return not utils.root_has_file(servers.biome.root_patterns)
+			end,
+		}),
+		require("null-ls").builtins.formatting.biome.with({
+			condition = function(utils)
+				return utils.root_has_file(servers.biome.root_patterns)
+			end,
+		}),
 	},
 	on_attach = require("plugins.lsp.servers.utils").on_attach,
 })
