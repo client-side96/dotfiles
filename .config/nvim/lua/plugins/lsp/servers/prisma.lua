@@ -5,7 +5,8 @@ local prisma = {
 }
 
 function prisma.setup()
-	require("lspconfig").prismals.setup({
+	vim.lsp.enable("prismals")
+	vim.lsp.config("prismals", {
 		on_attach = require("plugins.lsp.servers.utils").on_attach,
 	})
 end
