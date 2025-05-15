@@ -1,18 +1,16 @@
 local server_utils = {}
 
-vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=#1f1d2e]])
-vim.cmd([[autocmd! ColorScheme * highlight FloatBorder guifg=#6e6a86 guibg=#1f1d2e]])
-
 local border = {
-	{ "╭", "FloatBorder" },
-	{ "─", "FloatBorder" },
-	{ "╮", "FloatBorder" },
-	{ "│", "FloatBorder" },
-	{ "╯", "FloatBorder" },
-	{ "─", "FloatBorder" },
-	{ "╰", "FloatBorder" },
-	{ "│", "FloatBorder" },
+	{ " ", "FloatBorder" },
+	{ " ", "FloatBorder" },
+	{ " ", "FloatBorder" },
+	{ " ", "FloatBorder" },
+	{ " ", "FloatBorder" },
+	{ " ", "FloatBorder" },
+	{ " ", "FloatBorder" },
+	{ " ", "FloatBorder" },
 }
+-- local border = nil -- Disabling borders for now
 
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 
@@ -25,7 +23,7 @@ function server_utils.on_attach(client, bufnr, format_with_lsp)
 		return orig_util_open_floating_preview(contents, syntax, opts, ...)
 	end
 
-	if client.supports_method("textDocument/formatting") then
+	if client.supports_method("textDocument/formatting") or client.supports_method("textDocument/onTypeFormatting") then
 		vim.api.nvim_clear_autocmds({ group = formatting_augroup, buffer = bufnr })
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			group = formatting_augroup,
@@ -33,6 +31,7 @@ function server_utils.on_attach(client, bufnr, format_with_lsp)
 			callback = function()
 				format_with_lsp = format_with_lsp or false
 
+				print("format_with_lsp: " .. tostring(format_with_lsp))
 				if format_with_lsp then
 					vim.lsp.buf.format({ bufnr = bufnr, async = false })
 				else

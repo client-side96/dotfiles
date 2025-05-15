@@ -20,10 +20,11 @@ vim.opt.backup = false
 vim.opt.scrolloff = 8
 vim.opt.updatetime = 50
 
-vim.opt.wrap = false
 vim.opt.showmode = false
 
 vim.opt.exrc = true
+vim.opt.laststatus = 2 -- Or 3 for global statusline
+vim.opt.statusline = " %t %m %= %l:%c ♥ "
 vim.opt.wrap = true
 
-vim.cmd.colorscheme("rose-pine")
+vim.cmd.colorscheme("carbonfox")

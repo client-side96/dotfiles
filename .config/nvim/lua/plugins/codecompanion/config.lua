@@ -25,4 +25,12 @@ require("codecompanion").setup({
 			adapter = "copilot",
 		},
 	},
+	opts = {
+		system_prompt = function(opts)
+			local language = opts.language or "English"
+			return string.format(require("plugins.codecompanion.prompts").system_prompt, language)
+		end,
+	},
 })
+
+require("client-side.keymaps").set_codecompanion()
