@@ -26,3 +26,12 @@ require("nvim-treesitter.configs").setup({
 		},
 	},
 })
+
+require("treesitter-context").setup({
+	enable = true,
+	max_lines = 3,
+	line_numbers = true,
+	trim_scope = "outer",
+	mode = "cursor",
+	zindex = 20,
+})
