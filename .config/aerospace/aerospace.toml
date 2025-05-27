@@ -13,7 +13,10 @@ exec-on-workspace-change = [
 accordion-padding = 0
 
 [gaps]
-outer.bottom = 25
+outer.top =  [{ monitor.built-in = 10}, 35]
+outer.right = 20 
+outer.left = 20 
+outer.bottom = 10 
 
 [mode.main.binding]
 
