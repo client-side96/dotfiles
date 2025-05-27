@@ -23,7 +23,25 @@ end
 local function register_keymaps()
 	vim.api.nvim_create_autocmd("LspAttach", {
 		callback = function(event)
-			require("client-side.keymaps").set_lsp(event.bufnr)
+			local opts = { buffer = event.bufnr }
+
+			vim.keymap.set("n", "<leader>k", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+			vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+			vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
+			vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
+			vim.keymap.set("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
+			vim.keymap.set("n", "gR", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
+			vim.keymap.set("n", "gS", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
+			vim.keymap.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+			vim.keymap.set("n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+			vim.keymap.set({ "n", "x" }, "<leader>F", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
+			vim.keymap.set("n", "[d", function()
+				vim.diagnostic.goto_prev({ float = { source = true } })
+			end, opts)
+			vim.keymap.set("n", "]d", function()
+				vim.diagnostic.goto_next({ float = { source = true } })
+			end, opts)
+			vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
 		end,
 	})
 end
