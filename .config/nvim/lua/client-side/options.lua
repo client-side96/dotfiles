@@ -2,7 +2,7 @@ vim.opt.number = true
 
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
-vim.opt.colorcolumn = { "80", "100", "120" }
+vim.opt.colorcolumn = { "80" }
 vim.opt.signcolumn = "yes"
 
 vim.opt.list = true
@@ -23,8 +23,8 @@ vim.opt.updatetime = 50
 vim.opt.showmode = false
 
 vim.opt.exrc = true
-vim.opt.laststatus = 2 -- Or 3 for global statusline
+vim.opt.laststatus = 2
 vim.opt.statusline = " %t %m %= %l:%c ♥ "
 vim.opt.wrap = true
 
-vim.cmd.colorscheme("carbonfox")
+vim.cmd.colorscheme("rose-pine")

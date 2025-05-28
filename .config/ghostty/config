@@ -1,12 +1,15 @@
 font-family = Cascadia Code PL
+font-style = SemiBold
 font-family-italic = Cascadia Code PL
+font-style-italic = SemiBold
 font-feature = +calt
 font-feature = +ss01
-font-size = 16
-adjust-cell-height = "40%"
-theme = "carbonfox"
-window-decoration = "none"
-window-padding-y = 0,0 
-window-padding-balance = true
-window-padding-color = "extend"
+font-size = 14
+adjust-cell-height = "60%"
+#window-decoration = "none"
+macos-titlebar-style = hidden
+theme = "rose-pine"
+#window-padding-y = 0,0 
+#window-padding-balance = true
+#window-padding-color = "extend"
 
