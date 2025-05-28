@@ -1,28 +1,28 @@
 require("codecompanion").setup({
 	adapters = {
-		copilot = function()
-			return require("codecompanion.adapters").extend("copilot", {
+		openrouter_gemini_flash = function()
+			return require("codecompanion.adapters").extend("openai_compatible", {
+				env = {
+					url = "https://openrouter.ai/api",
+					api_key = "cmd:cat " .. os.getenv("HOME") .. "/.ai/openrouter_gemini_flash_25.txt",
+					chat_url = "/v1/chat/completions",
+				},
 				schema = {
 					model = {
-						default = "claude-3.7-sonnet",
+						default = "google/gemini-2.5-flash-preview-05-20",
 					},
 				},
 			})
 		end,
-		opts = {
-			show_defaults = false,
-			show_model_choices = true,
-		},
 	},
 	strategies = {
 		chat = {
-			adapter = "copilot",
+			adapter = "openrouter_gemini_flash",
 		},
 		inline = {
-			adapter = "copilot",
-		},
-		cmd = {
-			adapter = "copilot",
+			adapter = "openrouter_gemini_flash",
 		},
 	},
 })
+
+vim.keymap.set("n", "<leader>aa", ":CodeCompanionChat<CR>", { desc = "CodeCompanion Chat" })

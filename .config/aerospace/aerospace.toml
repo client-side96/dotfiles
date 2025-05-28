@@ -13,11 +13,14 @@ exec-on-workspace-change = [
 accordion-padding = 0
 
 [gaps]
-outer.bottom = 25
+outer.top =  [{ monitor.built-in = 10}, 35]
+outer.right = 20 
+outer.left = 20 
+outer.bottom = 10 
+inner.horizontal = 10 
+inner.vertical = 10 
 
 [mode.main.binding]
-# See: https://nikitabobko.github.io/AeroSpace/goodies#open-a-new-window-with-applescript
-alt-enter = 'exec-and-forget open -a Ghostty -n'
 
 # i3 wraps focus by default
 alt-j = 'focus --boundaries-action wrap-around-the-workspace left'
@@ -76,7 +79,7 @@ alt-shift-0 = 'move-node-to-workspace 10'
 
 alt-shift-c = 'reload-config'
 
-alt-r = 'mode resize'
+alt-shift-r = 'mode resize'
 
 [mode.resize.binding]
 h = 'resize width -50'
@@ -85,3 +88,23 @@ k = 'resize height -50'
 l = 'resize width +50'
 enter = 'mode main'
 esc = 'mode main'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.finder'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.Safari'
+    run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+    if.app-id = 'com.raycast.macos'
+    run = 'layout floating'
+
+[workspace-to-monitor-force-assignment]
+    1 = 'main' # Browser
+    2 = 'main' # Editor & Terminal
+    3 = ['LS24A600U \(2\)', 'main'] # Build & Testing
+    4 = ['built-in', 'main'] # Slack & Teams
+    5 = ['LS24A600U \(2\)', 'main'] # Debugging & Database
+    6 = ['LS24A600U \(2\)', 'main'] # Spotify

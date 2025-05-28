@@ -1,18 +1,16 @@
 local server_utils = {}
 
-vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=#1f1d2e]])
-vim.cmd([[autocmd! ColorScheme * highlight FloatBorder guifg=#6e6a86 guibg=#1f1d2e]])
-
 local border = {
-	{ "╭", "FloatBorder" },
-	{ "─", "FloatBorder" },
-	{ "╮", "FloatBorder" },
-	{ "│", "FloatBorder" },
-	{ "╯", "FloatBorder" },
-	{ "─", "FloatBorder" },
-	{ "╰", "FloatBorder" },
-	{ "│", "FloatBorder" },
+	{ " ", "FloatBorder" },
+	{ " ", "FloatBorder" },
+	{ " ", "FloatBorder" },
+	{ " ", "FloatBorder" },
+	{ " ", "FloatBorder" },
+	{ " ", "FloatBorder" },
+	{ " ", "FloatBorder" },
+	{ " ", "FloatBorder" },
 }
+-- local border = nil -- Disabling borders for now
 
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 
@@ -22,6 +20,7 @@ function server_utils.on_attach(client, bufnr, format_with_lsp)
 	function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 		opts = opts or {}
 		opts.border = opts.border or border
+		opts.width = opts.width or 60
 		return orig_util_open_floating_preview(contents, syntax, opts, ...)
 	end
 

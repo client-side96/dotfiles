@@ -68,4 +68,18 @@ end
 
 require("telescope").load_extension("flutter")
 
-require("client-side.keymaps").set_telescope(require("telescope.builtin"), custom, require("telescope").extensions)
+local builtin = require("telescope.builtin")
+local extensions = require("telescope").extensions
+
+vim.keymap.set("n", "<leader>f", custom.project_files)
+vim.keymap.set("n", "<leader>b", builtin.buffers)
+vim.keymap.set("n", "<leader>'", builtin.resume)
+vim.keymap.set("n", "<leader>j", builtin.jumplist)
+vim.keymap.set("n", "<leader>/", builtin.live_grep)
+vim.keymap.set("n", "<leader>hh", builtin.help_tags)
+
+vim.keymap.set("n", "gr", builtin.lsp_references)
+vim.keymap.set("n", "<leader>s", builtin.lsp_document_symbols)
+vim.keymap.set("n", "<leader>S", builtin.lsp_workspace_symbols)
+vim.keymap.set("n", "<leader>d", builtin.diagnostics)
+vim.keymap.set("n", "<leader>D", extensions.flutter.commands)

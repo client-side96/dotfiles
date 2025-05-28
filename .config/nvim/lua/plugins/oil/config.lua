@@ -19,4 +19,4 @@ require("oil").setup({
 	},
 })
 
-require("client-side.keymaps").set_oil()
+vim.keymap.set("n", "<leader>n", ":Oil --float<cr>")

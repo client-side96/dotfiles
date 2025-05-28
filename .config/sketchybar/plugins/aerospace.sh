@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-echo "NAME: $NAME"
-echo "FOCUSED: $FOCUSED_WORKSPACE"
+set_bar() {
+  sketchybar --set $NAME label.color=$1 icon.color=$1
+}
+
 if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
-  sketchybar --set $NAME icon.color=0xc4a7e7ff
+  set_bar $2
 else
-  sketchybar --set $NAME icon.color=0xffffffff
+  set_bar $3
 fi
