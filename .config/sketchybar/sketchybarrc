@@ -2,8 +2,8 @@ CONFIG_DIR=$HOME/.config/sketchybar
 
 font="Cascadia Code NF"
 fg=0xFFFFFFFF
-bg=0xFF1F1D2E
-highlight=0xFFF6C177
+bg=0xFF11111B
+highlight=0xFFCBA6F7
 
 bar_height=32
 bar_base=0x00000000 # Transparent background
