@@ -27,4 +27,4 @@ vim.opt.laststatus = 2
 vim.opt.statusline = " %t %m %= %l:%c ♥ "
 vim.opt.wrap = true
 
-vim.cmd.colorscheme("rose-pine")
+vim.cmd.colorscheme("catppuccin-mocha")
