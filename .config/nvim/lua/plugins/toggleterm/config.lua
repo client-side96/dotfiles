@@ -20,7 +20,7 @@ function Lazygit_toggle()
 	lazygit_cmd:toggle()
 end
 
-vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>lua Lazygit_toggle()<CR>", {
+vim.api.nvim_set_keymap("n", "<leader>gg", '<cmd>!tmux display-popup -E -w 95\\% -h 95\\% "lazygit -p $(pwd)"<CR>', {
 	noremap = true,
 	silent = true,
 })
