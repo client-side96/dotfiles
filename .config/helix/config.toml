@@ -1,4 +1,4 @@
-theme = "rose_pine"
+theme = "catppuccin_mocha"
 
 [editor]
 line-number = "absolute"
@@ -6,13 +6,13 @@ cursorline = true
 cursorcolumn = true
 mouse = false
 undercurl = true
-rulers = [80, 100, 120]
+rulers = [80]
 soft-wrap.enable = true
 color-modes = true
 true-color = true
 idle-timeout = 50
 completion-timeout = 50
-# popup-border = "all"
+popup-border = "all"
 end-of-line-diagnostics = "hint"
 completion-replace = true
 
@@ -77,5 +77,6 @@ n = [
 
 [keys.normal.space.g]
 c = "changed_file_picker"
-g = ':sh tmux display-popup -E -w 95%% -h 95%% "lazygit"'
+g = ':sh tmux display-popup -E -w 95%% -h 95%% "lazygit -p $(pwd)"'
 b = ':echo %sh{git blame -L %{cursor_line},%{cursor_line} %{buffer_name} | sed -n "s/^[^(]*(\([^)]*\)).*/\1/p"} '
+t = ':echo %sh{pwd}'
