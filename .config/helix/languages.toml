@@ -3,6 +3,9 @@ command = "deno"
 args = ["lsp"]
 config = { "provideFormatter" = true }
 
+[language-server.tailwindcss-ls]
+config = { userLanguages = { gotmpl = "html" } }
+
 # Snippets language server
 [language-server.scls]
 command = "simple-completion-language-server"
