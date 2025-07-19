@@ -78,5 +78,5 @@ n = [
 [keys.normal.space.g]
 c = "changed_file_picker"
 g = ':sh tmux display-popup -E -w 95%% -h 95%% "lazygit -p $(pwd)"'
-b = ':echo %sh{git blame -L %{cursor_line},%{cursor_line} %{buffer_name} | sed -n "s/^[^(]*(\([^)]*\)).*/\1/p"} '
+b = ":echo %sh{git show --no-patch --format='%%h (%%an: %%ar): %%s' $(git blame -p %{buffer_name} -L%{cursor_line},+1 | head -1 | cut -d' ' -f1)}"
 t = ':echo %sh{pwd}'

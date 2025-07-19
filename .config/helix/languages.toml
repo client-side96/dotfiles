@@ -42,6 +42,9 @@ name = "json"
 formatter = { command = 'prettier' }
 auto-format = false
 
+[[language]]
+name = "gotmpl"
+language-servers = [ "gopls", "vscode-html-language-server", "tailwindcss-ls",]
 
 [[language]]
 name = "css"
