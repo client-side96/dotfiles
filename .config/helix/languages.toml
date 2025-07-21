@@ -3,6 +3,9 @@ command = "deno"
 args = ["lsp"]
 config = { "provideFormatter" = true }
 
+[language-server.tailwindcss-ls]
+config = { userLanguages = { gotmpl = "html" } }
+
 # Snippets language server
 [language-server.scls]
 command = "simple-completion-language-server"
@@ -42,6 +45,9 @@ name = "json"
 formatter = { command = 'prettier' }
 auto-format = false
 
+[[language]]
+name = "gotmpl"
+language-servers = [ "gopls", "vscode-html-language-server", "tailwindcss-ls",]
 
 [[language]]
 name = "css"
