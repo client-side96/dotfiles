@@ -1,6 +1,0 @@
-.dotfiles
-.cfg
-.config/helix/runtime/
-.config/kitty/*.bak
-.helix
-TASK_TODO.md
