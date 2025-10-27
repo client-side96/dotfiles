@@ -1,0 +1,18 @@
+{
+  "plugins": {
+    "conform.nvim": [],
+    "copilot.lua": [],
+    "github-theme": {
+      "rev": "c106c94",
+      "src": "https://github.com/projekt0n/github-nvim-theme"
+    },
+    "mason.nvim": [],
+    "nvim": [],
+    "nvim-autopairs": [],
+    "nvim-treesitter": [],
+    "overseer.nvim": {
+      "version": "'stevearc-rewrite'"
+    },
+    "vim-fern": []
+  }
+}
