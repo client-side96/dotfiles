@@ -105,4 +105,3 @@ sketchybar --add item network right \
               update_freq=60
 
 sketchybar --update
-
