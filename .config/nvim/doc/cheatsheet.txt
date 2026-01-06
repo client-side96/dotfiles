@@ -1,0 +1,9 @@
+*cheatsheet*	       An overview of shortcuts and commands I usually forget.
+
+File explorer:                                           *cheatsheet-explorer*
+	%: Create new file in current directory
+	d: Create directory
+	D: Delete file or directory
+	R: Rename file or directory
+
+vim:tw=78:ts=8:sw=4:sts=4:et:ft=help:norl:
