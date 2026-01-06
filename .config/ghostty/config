@@ -1,15 +1,11 @@
-font-family = Cascadia Code PL
-font-style = SemiBold
-font-family-italic = Cascadia Code PL
-font-style-italic = SemiBold
-font-feature = +calt
-font-feature = +ss01
-font-size = 14
-adjust-cell-height = "60%"
-#window-decoration = "none"
-macos-titlebar-style = hidden
-theme = "catppuccin-mocha"
-#window-padding-y = 0,0 
-#window-padding-balance = true
-#window-padding-color = "extend"
 
+macos-titlebar-style = tabs 
+font-family = "Cascadia Code"
+adjust-cell-height = "40%"
+
+keybind = ctrl+shift+r=prompt_surface_title
+
+theme = "minimal"
+macos-titlebar-style = hidden
+
+command = zsh --login -c "if command -v tmux >/dev/null 2>&1; then tmux attach || tmux; else zsh; fi"
