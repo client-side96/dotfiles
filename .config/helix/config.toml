@@ -1,0 +1,98 @@
+theme = "minimal"
+
+[editor]
+line-number = "absolute"
+cursorline = true
+cursorcolumn = true
+mouse = false
+undercurl = true
+rulers = [80]
+soft-wrap.enable = true
+color-modes = true
+true-color = true
+idle-timeout = 50
+completion-timeout = 50
+popup-border = "all"
+end-of-line-diagnostics = "hint"
+completion-replace = true
+
+[editor.statusline]
+left = ["mode", "spinner", "file-base-name", "spacer", "version-control"]
+center = ["register"]
+right = ["diagnostics", "workspace-diagnostics", "spacer", "file-type"]
+mode.normal = "NOR"
+mode.insert = "INS"
+mode.select = "SEL"
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = false
+
+[editor.file-picker]
+hidden = false
+
+[editor.cursor-shape]
+normal = "block"
+insert = "underline"
+select = "underline"
+
+[editor.whitespace.render]
+space = "all"
+
+[editor.whitespace.characters]
+space = "·"
+
+[editor.indent-guides]
+render = true
+character = "┊"
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+other-lines = "hint"
+prefix-len = 3
+
+# Keybindings
+[keys.normal]
+"C-A-l" = ":open ~/.config/helix/languages.toml" # Open helix configuration
+"C-A-c" = ":open ~/.config/helix/config.toml"    # Open helix language configuration
+"C-r" = ":reload-all"
+
+[keys.insert]
+"A-u" = [':insert-output echo "ü"', "extend_char_right"]
+"A-a" = [':insert-output echo "ä"', "extend_char_right"]
+"A-s" = [':insert-output echo "ß"', "extend_char_right"]
+"A-o" = [':insert-output echo "ö"', "extend_char_right"]
+"A-U" = [':insert-output echo "Ü"', "extend_char_right"]
+"A-A" = [':insert-output echo "Ä"', "extend_char_right"]
+"A-O" = [':insert-output echo "Ö"', "extend_char_right"]
+
+[keys.normal.space]
+n = [
+  ':sh rm -f /tmp/unique-file',
+  ":insert-output yazi '%{buffer_name}' --chooser-file=/tmp/unique-file",
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+]
+z = [
+    ":write-all", 
+    ":new", 
+    ":insert-output opencode", 
+    ":buffer-close!", 
+    ":redraw", 
+    ":reload-all"
+]
+
+
+[keys.normal.space.g]
+c = "changed_file_picker"
+g = [
+    ":write-all", 
+    ":new", 
+    ":insert-output lazygit", 
+    ":buffer-close!", 
+    ":redraw", 
+    ":reload-all"
+]
+b = ":echo %sh{git show --no-patch --format='%%h (%%an: %%ar): %%s' $(git blame -p %{buffer_name} -L%{cursor_line},+1 | head -1 | cut -d' ' -f1)}"
+t = ':echo %sh{pwd}'

@@ -1,0 +1,141 @@
+"attribute" = "white_1"
+
+"type" = "white_1"
+"type.enum.variant" = "white_2"
+
+"constructor" = "white_2"
+
+"constant" = "white_2"
+
+"string" = "green"
+"string.special" = "white"
+
+"comment" = { fg = "base_light_2" }
+
+"variable" = "white"
+
+"label" = "yellow"
+
+"punctuation" = "white"
+
+"keyword" = "yellow"
+"keyword.exception" = "red"
+
+"operator" = "white"
+
+"function" = "white_2"
+"function.macro" = "white_1"
+
+"tag" = "white"
+
+"namespace" = { fg = "white_1" }
+
+"special" = "white"
+
+"diff.plus" = "green"
+"diff.minus" = "red"
+"diff.delta" = "blue"
+
+# User Interface
+# --------------
+"ui.background" = { fg = "white", bg = "base_0" }
+
+"ui.linenr" = { fg = "white_3" }
+"ui.linenr.selected" = { fg = "white_1" }
+
+"ui.statusline" = { fg = "white", bg = "base_0", modifiers = ["bold"] }
+"ui.statusline.inactive" = { fg = "white_3", bg = "base_7" }
+"ui.statusline.normal" = { fg = "base", bg = "rosewater", modifiers = ["bold"] }
+
+"ui.popup" = { fg = "white", bg = "base_0" }
+"ui.window" = { fg = "white" }
+"ui.help" = { fg = "white", bg = "base_0" }
+"ui.menu.selected" = { fg = "yellow", bg = "base_0" }
+
+"ui.text" = "white"
+
+"ui.virtual" = { fg = "base_light_2" }
+
+"ui.selection" = { bg = "base_4" }
+
+"ui.cursor" = { fg = "base_0", bg = "white" }
+"ui.cursor.primary" = { fg = "base_0", bg = "white" }
+"ui.cursor.match" = { fg = "yellow", modifiers = ["bold"] }
+
+"ui.cursor.primary.normal" = { fg = "base_0", bg = "white" }
+"ui.cursor.primary.insert" = { fg = "base_0", bg = "white" }
+"ui.cursor.primary.select" = { fg = "base_0", bg = "yellow" }
+
+"ui.cursor.normal" = { fg = "base_0", bg = "white_1" }
+"ui.cursor.insert" = { fg = "base_0", bg = "white_1" }
+"ui.cursor.select" = { fg = "base_0", bg = "white_1" }
+
+"ui.cursorline.primary" = { bg = "base_2" }
+
+"diagnostic.error" = { underline = { color = "red", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "yellow", style = "curl" } }
+"diagnostic.info" = { underline = { color = "blue", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "base_light_2", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+
+error = "red"
+warning = "yellow"
+info = "blue"
+hint = "base_light_2"
+
+[palette]
+yellow = "#fabb00"
+white = "#ffffff"
+white_1 = "#e1e4e8"
+white_2 = "#c8cdd6"
+white_3 = "#6b7280"
+
+green_dark = "#1a3d32"
+green = "#4ec9a1"
+green_light = "#6dd9b5"
+
+red_dark      = "#b5536a"
+red           = "#e86b82"
+red_bright    = "#f08399"
+
+blue_dark     = "#5682ab"
+blue          = "#6fa3d6"
+blue_bright   = "#8db8e3"
+
+orange_dark   = "#b77d52"
+orange        = "#e89c68"
+orange_bright = "#f0b080"
+
+purple_dark   = "#8f6fa7"
+purple        = "#b58dd1"
+purple_bright = "#c5a1df"
+
+cyan_dark     = "#5690a7"
+cyan          = "#6db5d1"
+cyan_bright   = "#8bc7e0"
+
+base_0        = "#14161B"
+base_1        = "#1a1d23"
+base_2        = "#1f222a"
+base_3        = "#24282f"
+base_4        = "#292d36"
+base_5        = "#2e333c"
+base_6        = "#343942"
+base_7        = "#3a3f49"
+base_8        = "#40454f"
+base_9        = "#464c56"
+base_10       = "#4d535e"
+base_11       = "#545a66"
+base_light_0  = "#5a606c"
+base_light_1  = "#60666f"
+base_light_2  = "#666c75"
+base_light_3  = "#6c727b"
+base_light_4  = "#727881"
+base_light_5  = "#787e87"
+base_light_6  = "#7e848d"
+base_light_7  = "#848a93"
+base_light_8  = "#8a9099"
+base_light_9  = "#90969f"
+base_light_10 = "#969ca5"
+base_light_11 = "#9ca2ab"
+

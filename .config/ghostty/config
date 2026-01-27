@@ -1,6 +1,7 @@
 
 macos-titlebar-style = tabs 
 font-family = "Cascadia Code"
+font-size = 14
 adjust-cell-height = "40%"
 
 keybind = ctrl+shift+r=prompt_surface_title
