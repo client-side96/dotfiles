@@ -1,12 +1,34 @@
-
 macos-titlebar-style = tabs 
 font-family = "Cascadia Code"
 font-size = 14
+font-thicken = true
 adjust-cell-height = "40%"
+cursor-style = "underline"
+macos-icon = "retro"
+unfocused-split-opacity = 0.7
+
+auto-update-channel = "tip"
+
+quick-terminal-size = "70%,100%"
 
 keybind = ctrl+shift+r=prompt_surface_title
 
 theme = "minimal"
-macos-titlebar-style = hidden
 
-command = zsh --login -c "if command -v tmux >/dev/null 2>&1; then tmux attach || tmux; else zsh; fi"
+window-save-state = always
+
+keybind = global:cmd+j=toggle_quick_terminal
+
+keybind = cmd+shift+h=goto_split:left
+keybind = cmd+shift+l=goto_split:right
+keybind = cmd+shift+k=goto_split:up
+keybind = cmd+shift+j=goto_split:down
+
+keybind = cmd+alt+h=new_split:left
+keybind = cmd+alt+l=new_split:right
+keybind = cmd+alt+k=new_split:up
+keybind = cmd+alt+j=new_split:down
+
+keybind = cmd+shift+f=toggle_split_zoom
+
+keybind = cmd+alt+i=inspector:toggle
