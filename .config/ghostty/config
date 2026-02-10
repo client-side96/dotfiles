@@ -17,7 +17,7 @@ theme = "minimal"
 
 window-save-state = always
 
-keybind = global:cmd+j=toggle_quick_terminal
+# keybind = global:cmd+j=toggle_quick_terminal
 
 keybind = cmd+shift+h=goto_split:left
 keybind = cmd+shift+l=goto_split:right
