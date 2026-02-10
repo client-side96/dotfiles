@@ -36,4 +36,4 @@ foreground = #ffffff
 cursor-color = #ffffff
 cursor-text = #000000
 selection-background = #2c2d32
-selection-foreground = #2c2d32
+selection-foreground = #ffffff
