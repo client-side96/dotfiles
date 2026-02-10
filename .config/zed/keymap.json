@@ -1,0 +1,48 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-b": "workspace::ToggleRightDock",
+      "alt-cmd-b": "workspace::ToggleLeftDock",
+      "cmd-`": "terminal_panel::ToggleFocus",
+    },
+  },
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == helix_normal)",
+    "bindings": {
+      "space g g": "git_panel::ToggleFocus",
+      "space g c": "git::ExpandCommitEditor",
+      "space n": "project_panel::ToggleFocus",
+      "space t": "terminal_panel::ToggleFocus",
+      "space m": "workspace::ToggleZoom",
+    },
+  },
+  {
+    "context": "Editor && showing_completions",
+    "bindings": {
+      "tab": ["workspace::SendKeystrokes", "down"],
+      "shift-tab": ["workspace::SendKeystrokes", "up"],
+    },
+  },
+  {
+    "context": "Editor && edit_prediction",
+    "bindings": {
+      "ctrl-j": "editor::AcceptEditPrediction",
+      "ctrl-l": "editor::AcceptNextWordEditPrediction",
+    },
+  },
+  {
+    "context": "GitPanel",
+    "bindings": {
+      "c": "git_panel::FocusEditor",
+      "n": "git::CheckoutBranch",
+      "q": "git_panel::Close",
+    },
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "q": "project_panel::ToggleFocus",
+    },
+  },
+]
